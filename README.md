@@ -1,6 +1,6 @@
 # FIT5122 Own-time Study Hub
 
-Bilingual Week 01–06 study guides built with React, Vite, TanStack Router, Tailwind CSS, shadcn/ui, GSAP, and i18next. Weeks 02–06 are published; Week 01 intentionally renders a placeholder.
+Bilingual Week 01–06 study guides built with React, Vite, TanStack Router, Tailwind CSS, shadcn/ui, GSAP, and i18next. All six week routes are published.
 
 ## Commands
 

@@ -25,10 +25,13 @@ describe('study hub routes', () => {
     expect(router.state.location.pathname).toBe('/week/06')
   })
 
-  it('renders a bilingual placeholder for an unpublished week', async () => {
+  it('renders the complete Week 01 communication and AI guide', async () => {
     await renderRoute('/week/01?lang=en')
-    expect(await screen.findByRole('heading', { name: 'Meetings, Presentations & Responsible AI' })).toBeInTheDocument()
-    expect(screen.getByText('This week’s study guide is on the way')).toBeInTheDocument()
+    expect(await screen.findByText('Choose the communication form first')).toBeInTheDocument()
+    expect(screen.getByText('Gen-AI: use the output, not an accountability escape hatch')).toBeInTheDocument()
+    expect(screen.getByText(/Self-verification is not independent verification/)).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /^(0[1-9]|1[0-2])/ })).toHaveLength(12)
+    expect(screen.getByText('Mata v. Avianca: why asking the model to verify itself failed')).toBeInTheDocument()
   })
 
   it('switches a published guide from Chinese to English', async () => {
