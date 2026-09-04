@@ -13,7 +13,7 @@ export interface WeekDefinition {
 export const WEEKS: readonly WeekDefinition[] = [
   { id: '01', status: 'placeholder', accent: '#7858a6', softAccent: '#ebe3f6', heroAccent: '#d9c7ee' },
   { id: '02', status: 'published', accent: '#2f6f68', softAccent: '#d9eee9', heroAccent: '#bde6dc' },
-  { id: '03', status: 'placeholder', accent: '#c75f45', softAccent: '#f7ddd5', heroAccent: '#ffd0c7' },
+  { id: '03', status: 'published', accent: '#c75f45', softAccent: '#f7ddd5', heroAccent: '#ffd0c7' },
   { id: '04', status: 'published', accent: '#3e6f9e', softAccent: '#dfeaf3', heroAccent: '#c8def1' },
   { id: '05', status: 'published', accent: '#c88724', softAccent: '#f8e9ca', heroAccent: '#f2c65e' },
   { id: '06', status: 'published', accent: '#0b766b', softAccent: '#d9eee9', heroAccent: '#d7e76a' },

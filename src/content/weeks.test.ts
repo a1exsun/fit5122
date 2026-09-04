@@ -8,9 +8,9 @@ describe('week registry', () => {
     expect(getWeek(LATEST_WEEK_ID)?.status).toBe('published')
   })
 
-  it('publishes Weeks 02, 04, 05, and 06 and reserves the remaining routes', () => {
-    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['02', '04', '05', '06'])
-    expect(WEEKS.filter((week) => week.status === 'placeholder').map((week) => week.id)).toEqual(['01', '03'])
+  it('publishes Weeks 02–06 and reserves Week 01', () => {
+    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['02', '03', '04', '05', '06'])
+    expect(WEEKS.filter((week) => week.status === 'placeholder').map((week) => week.id)).toEqual(['01'])
   })
 
   it('validates week ids and language search values', () => {
