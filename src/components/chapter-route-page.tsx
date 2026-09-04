@@ -1,32 +1,32 @@
 import { useEffect } from 'react'
 import { useNavigate, useParams, useSearch } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { ChapterContent } from '@/components/chapter-content'
 import { StudyShell } from '@/components/study-shell'
-import { WeekContent } from '@/components/week-content'
-import { getWeek } from '@/content/weeks'
+import { getChapter } from '@/content/chapters'
 import { asLocale } from '@/i18n'
 
-export function WeekRoutePage() {
-  const { weekId } = useParams({ from: '/week/$weekId' })
-  const search = useSearch({ from: '/week/$weekId' })
-  const navigate = useNavigate({ from: '/week/$weekId' })
+export function ChapterRoutePage() {
+  const { chapterId } = useParams({ from: '/chapter/$chapterId' })
+  const search = useSearch({ from: '/chapter/$chapterId' })
+  const navigate = useNavigate({ from: '/chapter/$chapterId' })
   const { i18n, t } = useTranslation()
-  const week = getWeek(weekId)!
+  const chapter = getChapter(chapterId)!
   const locale = search.lang ?? asLocale(i18n.resolvedLanguage)
 
   useEffect(() => {
     if (i18n.resolvedLanguage !== locale) void i18n.changeLanguage(locale)
     document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
-    document.title = `${t(`weeks.${weekId}.label`)} · ${t(`weeks.${weekId}.title`)} | FIT5122`
-  }, [i18n, locale, t, weekId])
+    document.title = `${t(`chapters.${chapterId}.label`)} · ${t(`chapters.${chapterId}.title`)} | FIT5122`
+  }, [chapterId, i18n, locale, t])
 
   useEffect(() => {
     if (!search.lang) void navigate({ search: { lang: locale }, replace: true })
   }, [locale, navigate, search.lang])
 
   return (
-    <StudyShell context={{ kind: 'week', item: week }} locale={locale}>
-      <WeekContent week={week} locale={locale} />
+    <StudyShell context={{ kind: 'chapter', item: chapter }} locale={locale}>
+      <ChapterContent chapter={chapter} locale={locale} />
     </StudyShell>
   )
 }

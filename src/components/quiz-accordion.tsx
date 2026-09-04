@@ -13,10 +13,10 @@ export function QuizAccordion({ items }: { items: QuizItem[] }) {
           <AccordionTrigger>
             <span className="flex items-start gap-4">
               <span className="mt-0.5 text-xs font-black tracking-wider text-[var(--week-accent)]">{String(index + 1).padStart(2, '0')}</span>
-              <span>{item.question}</span>
+              <span className="whitespace-pre-line">{item.question}</span>
             </span>
           </AccordionTrigger>
-          <AccordionContent>{item.answer}</AccordionContent>
+          <AccordionContent><span className="whitespace-pre-line">{item.answer}</span></AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

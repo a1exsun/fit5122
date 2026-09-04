@@ -30,9 +30,50 @@ interface WeekLayoutProps {
 }
 
 export function WeekLayout({ weekId, locale, eyebrow, title, subtitle, summary, updated, tags, toc, children }: WeekLayoutProps) {
-  const root = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
   const week = getWeek(weekId)!
+
+  return (
+    <GuideLayout
+      animationKey={`week-${weekId}`}
+      locale={locale}
+      palette={week}
+      eyebrow={eyebrow}
+      title={title}
+      subtitle={subtitle}
+      summary={summary}
+      updated={updated}
+      tags={tags}
+      toc={toc}
+      footerPrimary={`FIT5122 · Week ${weekId} · Own-time`}
+      footerSecondary={locale === 'zh' ? '双语学习页 · React / TanStack Router' : 'Bilingual study guide · React / TanStack Router'}
+      contentsLabel={t('contents')}
+    >
+      {children}
+    </GuideLayout>
+  )
+}
+
+interface GuideLayoutProps {
+  animationKey: string
+  locale: Locale
+  palette: { accent: string; softAccent: string; heroAccent: string }
+  eyebrow: string
+  title: string
+  subtitle: string
+  summary: string
+  updated: string
+  tags: string[]
+  toc: TocItem[]
+  footerPrimary: string
+  footerSecondary: string
+  contentsLabel: string
+  children: ReactNode
+}
+
+export function GuideLayout({ animationKey, locale, palette, eyebrow, title, subtitle, summary, updated, tags, toc, footerPrimary, footerSecondary, contentsLabel, children }: GuideLayoutProps) {
+  const root = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation()
 
   useGSAP(() => {
     const mm = gsap.matchMedia()
@@ -63,12 +104,12 @@ export function WeekLayout({ weekId, locale, eyebrow, title, subtitle, summary, 
       root.current ?? undefined,
     )
     return () => mm.revert()
-  }, { scope: root, dependencies: [weekId, locale], revertOnUpdate: true })
+  }, { scope: root, dependencies: [animationKey, locale], revertOnUpdate: true })
 
   const style = {
-    '--week-accent': week.accent,
-    '--week-accent-soft': week.softAccent,
-    '--week-hero-accent': week.heroAccent,
+    '--week-accent': palette.accent,
+    '--week-accent-soft': palette.softAccent,
+    '--week-hero-accent': palette.heroAccent,
   } as CSSProperties
 
   return (
@@ -89,8 +130,8 @@ export function WeekLayout({ weekId, locale, eyebrow, title, subtitle, summary, 
       </section>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-14">
-        <nav data-print-hidden data-animate="content" aria-label={t('contents')} className="h-fit overflow-x-auto rounded-2xl border bg-card/80 p-3 shadow-sm backdrop-blur lg:sticky lg:top-24 lg:overflow-visible lg:p-4">
-          <p className="hidden px-2 pb-2 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground lg:block">{t('contents')}</p>
+        <nav data-print-hidden data-animate="content" aria-label={contentsLabel} className="h-fit overflow-x-auto rounded-2xl border bg-card/80 p-3 shadow-sm backdrop-blur lg:sticky lg:top-24 lg:overflow-visible lg:p-4">
+          <p className="hidden px-2 pb-2 text-[11px] font-black uppercase tracking-[0.16em] text-muted-foreground lg:block">{contentsLabel}</p>
           <div className="flex min-w-max gap-1 lg:min-w-0 lg:flex-col">
             {toc.map((item, index) => (
               <a key={item.id} href={`#${item.id}`} className="rounded-xl px-3 py-2 text-sm font-semibold transition-colors hover:bg-[var(--week-accent-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
@@ -103,8 +144,8 @@ export function WeekLayout({ weekId, locale, eyebrow, title, subtitle, summary, 
       </div>
 
       <footer className="mt-20 flex flex-col justify-between gap-2 border-t pt-6 text-xs text-muted-foreground sm:flex-row">
-        <span className="font-bold text-foreground">FIT5122 · Week {weekId} · Own-time</span>
-        <span>{locale === 'zh' ? '双语学习页 · React / TanStack Router' : 'Bilingual study guide · React / TanStack Router'}</span>
+        <span className="font-bold text-foreground">{footerPrimary}</span>
+        <span>{footerSecondary}</span>
       </footer>
     </div>
   )

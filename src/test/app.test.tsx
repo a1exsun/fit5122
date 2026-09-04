@@ -34,6 +34,41 @@ describe('study hub routes', () => {
     expect(screen.getByText('Mata v. Avianca: why asking the model to verify itself failed')).toBeInTheDocument()
   })
 
+  it('renders Chapter 01 from the Week 01 key points and quiz', async () => {
+    await renderRoute('/chapter/01?lang=en')
+    expect(await screen.findByText('Four high-probability exam targets')).toBeInTheDocument()
+    expect(screen.getByText('Signing AI output: endorsement, not forwarding')).toBeInTheDocument()
+    expect(document.querySelectorAll('#practice button')).toHaveLength(4)
+    expect(screen.getByText('quiz/week01.md')).toBeInTheDocument()
+  })
+
+  it('renders Chapter 02 with all Week 02–04 priorities and practice questions', async () => {
+    await renderRoute('/chapter/02?lang=en')
+    expect(await screen.findByText('Three weeks, one examination logic')).toBeInTheDocument()
+    expect(screen.getByText('Week 02 · Team systems and communication tools')).toBeInTheDocument()
+    expect(screen.getByText('Week 03 · Conflict, leadership, and human judgement')).toBeInTheDocument()
+    expect(screen.getByText('Week 04 · Cross-cultural evidence and shared protocols')).toBeInTheDocument()
+    expect(document.querySelectorAll('#practice02 button, #practice03 button, #practice04 button')).toHaveLength(30)
+  })
+
+  it('keeps Chapter 03 as a bilingual placeholder', async () => {
+    await renderRoute('/chapter/03?lang=en')
+    expect(await screen.findByRole('heading', { name: 'Quality & Reliability' })).toBeInTheDocument()
+    expect(screen.getByText('Exam page reserved')).toBeInTheDocument()
+    expect(screen.getAllByText(/Weeks 05–06 are not ready yet/)).toHaveLength(2)
+  })
+
+  it('switches between the summary and exam dimensions with chapter-aware mapping', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/04?lang=en')
+    await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
+    expect(await screen.findByText('Three weeks, one examination logic')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/02')
+    await user.click(screen.getByRole('button', { name: 'Own-time Summary' }))
+    expect(await screen.findByText('Four-country evidence: culture matters, but not as a simple binary')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/04')
+  })
+
   it('switches a published guide from Chinese to English', async () => {
     const user = userEvent.setup()
     const router = await renderRoute('/week/05?lang=zh')
@@ -77,6 +112,11 @@ describe('study hub routes', () => {
 
   it('shows the shared not-found page for an invalid week', async () => {
     await renderRoute('/week/99?lang=en')
+    expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument()
+  })
+
+  it('shows the shared not-found page for an invalid chapter', async () => {
+    await renderRoute('/chapter/04?lang=en')
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument()
   })
 })
