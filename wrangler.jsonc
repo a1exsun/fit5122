@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "fit5122-week06-quality",
+  "account_id": "b5ee1671e54d7c7fcf17e90b9ca7741a",
+  "compatibility_date": "2026-09-04",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "fit5122.xsun.work",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "not_found_handling": "single-page-application"
+  }
+}
