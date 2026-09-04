@@ -68,17 +68,18 @@ export function WeekLayout({ weekId, locale, eyebrow, title, subtitle, summary, 
   const style = {
     '--week-accent': week.accent,
     '--week-accent-soft': week.softAccent,
+    '--week-hero-accent': week.heroAccent,
   } as CSSProperties
 
   return (
     <div ref={root} style={style}>
       <section data-animate="hero" className="relative mt-5 overflow-hidden rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground shadow-[0_28px_80px_rgb(22_37_34/0.14)] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-        <div className="pointer-events-none absolute -right-20 -top-40 size-[25rem] rounded-full border-[5rem] border-[var(--week-accent)] opacity-75" />
+        <div className="pointer-events-none absolute -right-20 -top-40 size-[25rem] rounded-full border-[5rem] border-[var(--week-hero-accent)] opacity-75" />
         <div className="pointer-events-none absolute -bottom-52 right-[24%] size-96 rotate-12 rounded-[44%_56%_64%_36%] bg-[#e2674a]/70" />
         <div className="relative z-10 max-w-4xl">
-          <p className="mb-6 flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-white/70 before:h-0.5 before:w-7 before:bg-[var(--week-accent)] before:content-['']">{eyebrow}</p>
+          <p className="mb-6 flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-white/70 before:h-0.5 before:w-7 before:bg-[var(--week-hero-accent)] before:content-['']">{eyebrow}</p>
           <h1 className="text-5xl font-black leading-[0.94] tracking-[-0.06em] sm:text-7xl lg:text-8xl">{title}</h1>
-          <p className="mt-5 text-2xl font-black tracking-tight text-[var(--week-accent)] sm:text-3xl">{subtitle}</p>
+          <p className="mt-5 text-2xl font-black tracking-tight text-[var(--week-hero-accent)] sm:text-3xl">{subtitle}</p>
           <p className="mt-7 max-w-3xl text-base leading-8 text-white/80 sm:text-lg">{summary}</p>
           <div className="mt-8 flex flex-wrap gap-2">
             {tags.map((tag) => <Badge key={tag} variant="outline" className="border-white/20 bg-white/5 px-3 py-1.5 text-white">{tag}</Badge>)}
