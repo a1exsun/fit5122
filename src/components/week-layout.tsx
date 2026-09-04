@@ -190,3 +190,16 @@ export function ResponsiveTable({ headers, rows }: { headers: string[]; rows: Re
 export function SectionRule() {
   return <Separator className="my-6" />
 }
+
+export function SourceList({ items, note }: { items: string[]; note: string }) {
+  return (
+    <div>
+      <div className="grid gap-2 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="rounded-xl border bg-card px-4 py-3 text-sm font-semibold">{item}</div>
+        ))}
+      </div>
+      <p className="mt-4 rounded-xl bg-muted px-4 py-3 text-xs leading-6 text-muted-foreground">{note}</p>
+    </div>
+  )
+}
