@@ -47,6 +47,15 @@ describe('study hub routes', () => {
     expect(screen.getAllByRole('button', { name: /^(0[1-9]|1[0-3])/ })).toHaveLength(13)
   })
 
+  it('renders the complete Week 04 evidence and self-checks', async () => {
+    await renderRoute('/week/04?lang=en')
+    expect(await screen.findByText('Four-country evidence: culture matters, but not as a simple binary')).toBeInTheDocument()
+    expect(screen.getByText('Total sample N = 1,792')).toBeInTheDocument()
+    expect(screen.getByText(/India first, Ireland second, Thailand third/)).toBeInTheDocument()
+    expect(screen.getAllByRole('button', { name: /^(0[1-9]|10)/ })).toHaveLength(10)
+    expect(screen.getByRole('img', { name: 'Roadmap for multicultural success in global IT teams' })).toBeInTheDocument()
+  })
+
   it('includes the newly available Week 06 podcast content', async () => {
     await renderRoute('/week/06?lang=en')
     expect(await screen.findByText('Podcast · Protect the flow')).toBeInTheDocument()
