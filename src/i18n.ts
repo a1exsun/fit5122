@@ -6,7 +6,6 @@ const resources = {
   zh: {
     common: {
       course: 'FIT5122 · Professional Practice',
-      studyHub: '双语学习中心',
       ownTime: 'Own-time 摘要',
       examFocus: '考点整理',
       viewMode: '学习维度',
@@ -42,7 +41,6 @@ const resources = {
   en: {
     common: {
       course: 'FIT5122 · Professional Practice',
-      studyHub: 'Bilingual Study Hub',
       ownTime: 'Own-time Summary',
       examFocus: 'Exam Focus',
       viewMode: 'Study view',

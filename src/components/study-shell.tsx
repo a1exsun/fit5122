@@ -60,7 +60,6 @@ export function StudyShell({ context, locale, children }: StudyShellProps) {
           </span>
           <div className="min-w-0">
             <p className="truncate text-xs font-black uppercase tracking-[0.13em] text-muted-foreground">{t('course')}</p>
-            <p className="truncate text-sm font-bold">{t('studyHub')}</p>
           </div>
         </div>
 
