@@ -119,7 +119,7 @@ export function GuideLayout({ animationKey, locale, palette, eyebrow, title, sub
         <div className="pointer-events-none absolute -bottom-52 right-[24%] size-96 rotate-12 rounded-[44%_56%_64%_36%] bg-[#e2674a]/70" />
         <div className="relative z-10 max-w-4xl">
           <p className="mb-6 flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-white/70 before:h-0.5 before:w-7 before:bg-[var(--week-hero-accent)] before:content-['']">{eyebrow}</p>
-          <h1 className="text-5xl font-black leading-[0.94] tracking-[-0.06em] sm:text-7xl lg:text-8xl">{title}</h1>
+          <h1 className="text-[clamp(2rem,10vw,3rem)] font-black leading-[0.94] tracking-[-0.06em] sm:text-7xl lg:text-8xl">{title}</h1>
           <p className="mt-5 text-2xl font-black tracking-tight text-[var(--week-hero-accent)] sm:text-3xl">{subtitle}</p>
           <p className="mt-7 max-w-3xl text-base leading-8 text-white/80 sm:text-lg">{summary}</p>
           <div className="mt-8 flex flex-wrap gap-2">
@@ -162,7 +162,7 @@ interface SectionProps {
 
 export function ContentSection({ id, index, title, intro, children, className }: SectionProps) {
   return (
-    <section id={id} data-animate="content" className={cn('scroll-mt-28', className)}>
+    <section id={id} data-animate="content" className={cn('scroll-mt-64 sm:scroll-mt-40 lg:scroll-mt-28', className)}>
       <div className="mb-7 grid gap-2 sm:grid-cols-[4.25rem_minmax(0,1fr)] sm:gap-5">
         <span className="pt-2 text-xs font-black uppercase tracking-[0.15em] text-[var(--week-accent)]">{index}</span>
         <div>
