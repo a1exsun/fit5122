@@ -2,6 +2,8 @@
   <img src="public/favicon.svg" width="72" height="72" alt="FIT5122 Study Hub icon" />
   <h1>FIT5122 Study Hub</h1>
   <p><strong>Monash · FIT5122 Professional Practice</strong></p>
+  <p><strong>2026 Semester 2 · Work in progress (WIP)</strong></p>
+  <p>Study materials are being updated throughout the semester.</p>
   <p>Own-time notes, chapter revision guides and practice questions for Weeks 01–06, available in English and Chinese.</p>
   <h3>🌐 <a href="https://fit5122.xsun.work">fit5122.xsun.work</a></h3>
   <p>
