@@ -23,7 +23,7 @@ export function PlaceholderChapter({ chapter, locale }: { chapter: ChapterDefini
       title={title}
       subtitle={t('comingSoon')}
       summary={body}
-      updated="04 Sep 2026"
+      updated="07 Sep 2026"
       tags={[weeks, t('comingSoon')]}
       toc={[{ id: 'placeholder', label: t('comingSoon') }]}
     >

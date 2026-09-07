@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'Software Quality' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/06')
+    expect(await screen.findByRole('heading', { name: 'Effective Communication' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/07')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {
@@ -158,7 +158,63 @@ describe('study hub routes', () => {
   })
 
   it('shows the shared not-found page for an invalid chapter', async () => {
-    await renderRoute('/chapter/04?lang=en')
+    await renderRoute('/chapter/99?lang=en')
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument()
+  })
+
+  it('renders Week 07 with complete learning coverage and twelve working self-checks', async () => {
+    const user = userEvent.setup()
+    await renderRoute('/week/07?lang=en')
+    expect(await screen.findByText('Three models, three diagnostic lenses')).toBeInTheDocument()
+    expect(screen.getByText('Empathy Forecast: Before → After → Bridge')).toBeInTheDocument()
+    expect(screen.getByText('Eleven barriers to listening')).toBeInTheDocument()
+    expect(screen.getByText('False dilemma')).toBeInTheDocument()
+    expect(screen.getByText('Audio summary transcription pending')).toBeInTheDocument()
+    expect(screen.getByText(/not Moodle quiz questions or exam predictions/)).toBeInTheDocument()
+    expect(document.querySelectorAll('#sources h3')).toHaveLength(11)
+    expect(document.querySelectorAll('#listening tbody tr')).toHaveLength(14)
+    const questions = document.querySelectorAll<HTMLButtonElement>('#review button')
+    expect(questions).toHaveLength(12)
+    for (const question of questions) {
+      await user.click(question)
+      expect(question).toHaveAttribute('aria-expanded', 'true')
+      expect(document.getElementById(question.getAttribute('aria-controls')!)?.textContent?.length).toBeGreaterThan(30)
+    }
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
+  })
+
+  it('switches Week 07 language, visits the Chapter 04 placeholder and returns', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/07?lang=zh')
+    expect(await screen.findByText('理解受众，再设计信息')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'EN' }))
+    expect(await screen.findByText('Understand the audience before designing the message')).toBeInTheDocument()
+    expect(screen.queryByText('理解受众，再设计信息')).not.toBeInTheDocument()
+    expect(router.state.location.search.lang).toBe('en')
+    await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
+    expect(await screen.findByText('Exam page reserved')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/04')
+    expect(document.querySelectorAll('#practice button')).toHaveLength(0)
+    await user.click(screen.getByRole('button', { name: '中文' }))
+    expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
+    expect(await screen.findByText('理解受众，再设计信息')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/07')
+    expect(router.state.location.search.lang).toBe('zh')
+  })
+
+  it('offers Week 07 in the week menu and Chapter 04 in the chapter menu', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/06?lang=en')
+    await user.click(await screen.findByRole('combobox', { name: 'Select week' }))
+    await user.click(screen.getByRole('option', { name: /Week 07/ }))
+    expect(await screen.findByRole('heading', { name: 'Effective Communication' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/07')
+    await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
+    expect(await screen.findByText('Exam page reserved')).toBeInTheDocument()
+    await user.click(screen.getByRole('combobox', { name: 'Select chapter' }))
+    expect(screen.getByRole('option', { name: /Chapter 04.*Coming soon/ })).toBeInTheDocument()
   })
 })

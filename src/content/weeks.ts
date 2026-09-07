@@ -1,4 +1,4 @@
-export const WEEK_IDS = ['01', '02', '03', '04', '05', '06'] as const
+export const WEEK_IDS = ['01', '02', '03', '04', '05', '06', '07'] as const
 export type WeekId = (typeof WEEK_IDS)[number]
 export type WeekStatus = 'published' | 'placeholder'
 
@@ -17,6 +17,7 @@ export const WEEKS: readonly WeekDefinition[] = [
   { id: '04', status: 'published', accent: '#3e6f9e', softAccent: '#dfeaf3', heroAccent: '#c8def1' },
   { id: '05', status: 'published', accent: '#c88724', softAccent: '#f8e9ca', heroAccent: '#f2c65e' },
   { id: '06', status: 'published', accent: '#0b766b', softAccent: '#d9eee9', heroAccent: '#d7e76a' },
+  { id: '07', status: 'published', accent: '#4269a2', softAccent: '#e0e9f6', heroAccent: '#f5c789' },
 ]
 
 export const LATEST_WEEK_ID = WEEKS.filter((week) => week.status === 'published').at(-1)!.id

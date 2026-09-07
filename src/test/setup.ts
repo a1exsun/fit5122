@@ -15,3 +15,7 @@ Object.defineProperty(window, 'matchMedia', {
 })
 
 window.scrollTo = () => undefined
+
+// JSDOM has no pointer capture or layout scrolling; Radix Select uses both.
+Element.prototype.hasPointerCapture = () => false
+Element.prototype.scrollIntoView = () => undefined
