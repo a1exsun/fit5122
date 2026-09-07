@@ -51,11 +51,53 @@ describe('study hub routes', () => {
     expect(document.querySelectorAll('#practice02 button, #practice03 button, #practice04 button')).toHaveLength(30)
   })
 
-  it('keeps Chapter 03 as a bilingual placeholder', async () => {
+  it('renders Chapter 03 with both weeks, sources, and 20 working practice answers', async () => {
+    const user = userEvent.setup()
     await renderRoute('/chapter/03?lang=en')
     expect(await screen.findByRole('heading', { name: 'Quality & Reliability' })).toBeInTheDocument()
-    expect(screen.getByText('Exam page reserved')).toBeInTheDocument()
-    expect(screen.getAllByText(/Weeks 05–06 are not ready yet/)).toHaveLength(2)
+    expect(screen.getByText('Week 05 · Quality, reliability, and professional responsibility')).toBeInTheDocument()
+    expect(screen.getByText('Week 06 · Measurement, standards, and quality management')).toBeInTheDocument()
+    expect(screen.getByText('Three standards: identify the evaluation object')).toBeInTheDocument()
+    expect(screen.queryByText('Exam page reserved')).not.toBeInTheDocument()
+    expect(screen.getAllByText(/They are not Moodle exam questions/)).toHaveLength(2)
+    expect(screen.getByText('week06/own-time/transcripts/Code Quality Podcast - transcript.md')).toBeInTheDocument()
+    const questions = document.querySelectorAll<HTMLButtonElement>('#practice05 button, #practice06 button')
+    expect(questions).toHaveLength(20)
+    for (const question of questions) {
+      await user.click(question)
+      expect(question).toHaveAttribute('aria-expanded', 'true')
+      expect(document.getElementById(question.getAttribute('aria-controls')!)?.textContent).toMatch(/Answer:|Marking points:/)
+    }
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
+  })
+
+  it('switches Chapter 03 content and practice from Chinese to English', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/chapter/03?lang=zh')
+    expect(await screen.findByText('两周，一条质量决策链')).toBeInTheDocument()
+    expect(screen.getByText('Week 05 · 10 道模拟题')).toBeInTheDocument()
+    expect(document.querySelectorAll('#practice05 button, #practice06 button')).toHaveLength(20)
+    await user.click(screen.getByRole('button', { name: 'EN' }))
+    expect(await screen.findByText('Two weeks, one quality decision chain')).toBeInTheDocument()
+    expect(screen.getByText('Week 06 · 10 practice questions')).toBeInTheDocument()
+    expect(screen.queryByText('两周，一条质量决策链')).not.toBeInTheDocument()
+    expect(router.state.location.search.lang).toBe('en')
+  })
+
+  it('maps Week 05 and Week 06 into the published Chapter 03 and back to Week 06', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/05?lang=en')
+    await user.click(await screen.findByRole('button', { name: 'Exam Focus' }))
+    expect(await screen.findByText('Two weeks, one quality decision chain')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/03')
+    await user.click(screen.getByRole('button', { name: 'Own-time Summary' }))
+    expect(await screen.findByRole('heading', { name: 'Software Quality' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/06')
+    await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
+    expect(await screen.findByText('Two weeks, one quality decision chain')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/03')
   })
 
   it('switches between the summary and exam dimensions with chapter-aware mapping', async () => {
