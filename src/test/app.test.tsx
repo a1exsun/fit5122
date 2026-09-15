@@ -171,7 +171,7 @@ describe('study hub routes', () => {
     expect(screen.getByText('False dilemma')).toBeInTheDocument()
     expect(screen.getByText('Audio summary transcription pending')).toBeInTheDocument()
     expect(screen.getByText(/not Moodle quiz questions or exam predictions/)).toBeInTheDocument()
-    expect(document.querySelectorAll('#sources h3')).toHaveLength(11)
+    expect(document.querySelectorAll('#sources h3')).toHaveLength(12)
     expect(document.querySelectorAll('#listening tbody tr')).toHaveLength(14)
     const questions = document.querySelectorAll<HTMLButtonElement>('#review button')
     expect(questions).toHaveLength(12)

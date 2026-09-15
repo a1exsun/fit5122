@@ -8,6 +8,7 @@ const sources = [
   ['Communications Theories', 'visual', null],
   ['FIT5122 - Chapter 4 Complex Communication', 'intro', null],
   ['FIT5122 Communications Theories', 'lecture', null],
+  ['FIT5122 - Empathy Forecasting (Guest Presenter)', 'guest', 'https://monash.au.panopto.com/Panopto/Pages/Viewer.aspx?id=b46b9430-0715-41bb-89d7-afe900569dcf'],
   ['Empathy Forecasting', 'article', 'https://www.sketchgroup.com.au/empathy-forecast-successful-communication/'],
   ['Storyboarding for developing a product video', 'article', 'https://www.crazyegg.com/blog/storyboard-a-marketing-video/'],
   ['STAR for structuring responses in interviews', 'article', 'https://www.thebalancemoney.com/what-is-the-star-interview-response-technique-2061629'],
@@ -21,8 +22,8 @@ const copy = {
   zh: {
     title: 'Effective Communication', subtitle: '从传递信息到共同理解',
     summary: '沟通的结果不取决于你说了多少，而取决于对方如何理解与回应。本周将受众分析、沟通模型、叙事结构和倾听反馈连接起来，帮助你把复杂信息转化为清晰、可信、可行动的表达。',
-    tags: ['10 项已整理 · 1 项待转译', '三种沟通模型', '受众 → 叙事 → 反馈', '12 道自测'],
-    toc: ['沟通主线', '三种模型', 'Empathy Forecast', '三种信息结构', '产品视频与故事板', 'STAR', '倾听与提问', 'Johari Window', '综合自测', '材料与边界'],
+    tags: ['11 项已整理 · 1 项待转译', '三种沟通模型', '受众 → 叙事 → 反馈', '12 道自测'],
+    toc: ['沟通主线', '三种模型', 'Empathy Forecast', '三种信息结构', '产品视频与故事板', '课前必看讲座', 'STAR', '倾听与提问', 'Johari Window', '综合自测', '材料与边界'],
     overview: {
       title: '理解受众，再设计信息', intro: '课程目标是判断不同受众的需要、选择合适渠道，并用规划和结构化方法提升复杂沟通的效果。',
       lead: 'Intended meaning ≠ sent message ≠ interpreted meaning。发出了信息，不代表对方理解了意图，更不代表已经作出承诺。',
@@ -38,7 +39,7 @@ const copy = {
     },
     empathy: {
       title: 'Empathy Forecast：Before → After → Bridge', intro: 'Sketch Group 将 empathy map 从“当前快照”扩展为“预期变化”，帮助团队形成与真实受众相关的语言。',
-      cards: [['Before · 现在', '明确一个具体受众，梳理其 thinking、feeling、hearing、seeing、saying、doing，找出痛点和顾虑。'], ['After · 之后', '设想产品或沟通成功后，对方的体验、情绪和行为应发生什么变化；不要只罗列产品功能。'], ['Bridge · 连接', '逐项追问：对方需要听到什么，才可能从 Before 走向 After？把答案转化为关键信息、证据与行动提示。']],
+      cards: [['Before · 现在', '明确一个具体受众，梳理其 thinking、feeling、hearing、seeing、saying、doing，找出痛点和顾虑。'], ['After · 之后', '在本讲座的视频任务中，设想对方观看视频后应如何思考、感受和行动；这张图关注视频带来的沟通效果。'], ['Bridge · 连接', '逐项追问：对方需要听到什么，才可能从 Before 走向 After？把答案转化为关键信息、证据与行动提示。']],
       boundary: 'Empathy Forecast 是团队提出假设的工具，不是真实用户研究的替代品。必须区分“我们想象的需要”与“已经向受众验证的需要”。',
       example: '应用示例（学习页自拟）：导师担心演示只展示功能 → 希望看见可验证的用户价值 → 用一个用户任务、实际结果与明确限制连接两端，再请导师复述其理解。',
     },
@@ -55,6 +56,38 @@ const copy = {
       workflow: 'Workshop → Script → Storyboard → Shoot → Edit → Final video。课程图特别强调：删除不服务于主旨的内容，剪辑时让画面动作与旁白同步。',
       examples: 'Crazy Egg 文章以 Dropbox 的普遍痛点、Facebook 的短功能场景、Salesforce 的销售工作流程说明受众差异。这里依据文章描述整理，没有声称观看其二级外链视频，也不将文中旧营销数字视为当前效果保证。',
     },
+    guest: {
+      "title": "课前必看：用 Empathy Forecast 设计产品视频",
+      "intro": "约 44 分钟的客座讲座 Product Videos Made Easy：先明确受众需要发生什么变化，再选择故事、语言与画面。以下按原生字幕时间索引整理。",
+      "cards": [
+            [
+                  "03:31–08:43 · 让受众在意",
+                  "好产品也需要被理解。先问受众是谁、购买者与使用者是否相同、何时需要产品、痛点是什么、现在如何解决。故事应呈现人物的困难与情绪，展示产品如何缓解困难，再呈现改善后的生活；功能只是支持材料。"
+            ],
+            [
+                  "13:47–16:42 · 先定脚本，再做画面",
+                  "Workshop → Script → Storyboard → Shoot → Edit → Final video。工作坊确定受众、关键信息和语言；脚本反馈并定稿后再画故事板，故事板确认后拍摄。脚本确定后，旁白、音乐和音效可以并行准备。"
+            ],
+            [
+                  "18:08–23:44 · 画 Before 与 After",
+                  "建议 4–6 人，用 60–90 分钟，在白板、便利贴或线上协作板上完成。选一个具体受众，围绕 thinking、feeling、seeing、saying、hearing、doing 描绘看视频前的状态，再描述希望看完后达到的状态。"
+            ],
+            [
+                  "23:49–32:47 · 红线就是脚本的语言",
+                  "逐项连接 Before 与 After，问“对方需要听到什么，才会发生这种变化？”课堂例子中，焦虑的家长需要听到孩子安全、安排灵活等具体信息，才可能感到放心和乐观。把答案转化为脚本措辞；这里规划的是视频如何改变理解和感受。受众可以是潜在用户，也可以是赞助方。"
+            ],
+            [
+                  "32:53–36:41 · 写出能让人共情的故事",
+                  "引入可代入的人物，用表情和处境传达情绪，同时触动理性与情感。删掉不必要但舍不得放弃的句子（kill your darlings），多次朗读、调整不自然的表达，再录制旁白。短片需要取舍，不必塞进工作坊的所有产出。"
+            ],
+            [
+                  "36:49–40:17 · 剪辑与声音服务于理解",
+                  "让画面持续有动作，必要时加速绘画过程；屏幕文字与旁白同步，避免迫使观众同时读听不同内容。展示人的脸与情绪。教师在录制中要求用有感情的真人旁白，并强调即使制作技术有限，视频仍须清楚可懂、注意拼写。"
+            ]
+      ],
+      "takeaway": "交付前自查：我们在对谁说话？希望观看前后改变什么？每句旁白是否帮助完成这种变化？画面与声音是否共同支持同一信息？",
+      "note": "依据 389 条原生字幕归纳，字幕有识别错误，以上为概括而非逐字引文。录制中的作业提示应结合当前作业说明理解。42:12 起的问答提到团队使用 Adobe Premiere / After Effects，也说明学生可用满足基本剪辑需求的工具。"
+},
     star: {
       title: 'STAR：用经历证明能力', intro: '适合行为式面试问题，例如“说说你曾经如何处理……”。准备与岗位能力相关的真实案例，而不是背诵泛泛的自我评价。',
       cards: [['Situation', '交代具体背景与挑战，让听众知道发生了什么。'], ['Task', '说明你承担的责任与目标，不要只重复项目背景。'], ['Action', '解释你采取了什么行动、如何处理挑战；区分个人贡献和团队贡献。'], ['Result', '说明结果或学到什么。有证据时量化，没有证据时不要编造数字。']],
@@ -80,16 +113,16 @@ const copy = {
       title: '把模型用到同一个场景', intro: '情境：向不熟悉技术的导师演示产品。这些是依据材料自拟的学习自测，不是 Moodle 测验原题或考试预测。',
       quiz: [['沟通成功是否等于消息已发送？', '不是。需要检查对方是否理解原本意图，以及是否产生目标回应；发送、理解、同意、承诺不能混为一谈。'], ['用 Lasswell 规划一次导师演示，要问什么？', '谁发言、说什么、用什么渠道、面向谁、希望产生什么效果。要考虑谁具有知识和可信度，而非默认所有话都由自己说。'], ['断线与术语误解都叫噪声，修复方式一样吗？', '不一样。断线需要修复传输并补齐遗漏；术语误解需要解释词义、补充背景和确认理解。'], ['为什么同一句话对队友和导师产生不同理解？', 'Schramm 强调共享经验、关系、角色与文化语境不同；需要给导师补充团队内部默认已知的背景。'], ['Empathy Forecast 相比单张 empathy map 多了什么？', '在 Before 快照之外增加 After 目标状态，再找出连接二者所需的信息；仍须验证受众假设。'], ['Brownlee 的三个结构能否同时使用？', '可以。Known→Unknown 连接背景，General→Specific 控制范围，Simple→Complex 逐步建立复杂关系。'], ['产品视频四段式是什么？', 'Opener → Problem statement → Solution → Call to action。不要以功能列表代替与受众有关的价值故事。'], ['故事板与脚本有什么区别？', '脚本说明说什么；故事板进一步把语言与镜头、顺序、角度、灯光和转换对应起来，是拍摄前的共同计划。'], ['STAR 中 Task 与 Action 如何区分？', 'Task 是你的责任或目标；Action 是你为完成责任实际采取的行为；Result 要补上结果或学习。'], ['导师表达顾虑时立刻给方案有什么风险？', '可能是 Quick fix：尚未理解事实与感受就抢答。先澄清、重述并邀请补充，再讨论方案。'], ['开放式、封闭式与诱导式问题分别适合做什么？', '开放式用于探索，封闭式用于确认与收束；诱导式预设答案，不应伪装成中立反馈收集。'], ['如何减小 Johari 盲区，又不强迫披露？', '邀请具体反馈并认真听取，区分反馈与自我披露。只分享与任务相关、符合信任和隐私边界的信息。']],
     },
-    sourcesTitle: '材料索引与证据边界', sourcesIntro: '11 项直接材料中，10 项已用于整理，1 段音频待转译。课程原始 PDF、音视频、字幕和图片不随页面上传；公开文章提供来源链接。',
-    sourceLabels: { visual: '课程图 · 已核对内容', intro: '原生字幕 · 2:04 · 15 条', lecture: '原生字幕 · 12:55 · 107 条', article: '公开文章 · 本地正文', pdf: '课程 PDF · 已阅读', reading: '核心阅读 318–323；Johari 补充 330–332', pending: '5:45 · 待 OmniVerse 转译 · 未用于内容推导' },
+    sourcesTitle: '材料索引与证据边界', sourcesIntro: '12 项直接材料中，11 项已用于整理，1 段音频待转译。课程原始 PDF、音视频、字幕和图片不随页面上传；公开文章提供来源链接。',
+    sourceLabels: { guest: '原生字幕 · 43:49 · 389 条 · 课前必看', visual: '课程图 · 已核对内容', intro: '原生字幕 · 2:04 · 15 条', lecture: '原生字幕 · 12:55 · 107 条', article: '公开文章 · 本地正文', pdf: '课程 PDF · 已阅读', reading: '核心阅读 318–323；Johari 补充 330–332', pending: '5:45 · 待 OmniVerse 转译 · 未用于内容推导' },
     pending: '音频摘要尚未转译', pendingBody: 'Bypassing the brain’s hidden communication barriers 已下载，但没有找到原生字幕。本页不推测其内容，留待下一轮 OmniVerse 转译后补充。',
     boundary: '两段视频按原生字幕整理，模型名称以课程 PDF 校正；正文案例和自测明确为自拟。故事板文章的二级视频链接未另行观看。Chapter 04 考点整理暂为占位，不影响本页学习。',
   },
   en: {
     title: 'Effective Communication', subtitle: 'From information transfer to shared meaning',
     summary: 'Communication is measured by what people understand and how they respond, not by how much you say. Connect audience analysis, communication models, narrative structure and listening to make complex ideas clear, credible and actionable.',
-    tags: ['10 sources covered · 1 transcript pending', 'Three communication models', 'Audience → Narrative → Feedback', '12 self-checks'],
-    toc: ['Core principle', 'Three models', 'Empathy Forecast', 'Three structures', 'Video & storyboards', 'STAR', 'Listening & questions', 'Johari Window', 'Self-checks', 'Sources & boundaries'],
+    tags: ['11 sources covered · 1 transcript pending', 'Three communication models', 'Audience → Narrative → Feedback', '12 self-checks'],
+    toc: ['Core principle', 'Three models', 'Empathy Forecast', 'Three structures', 'Video & storyboards', 'Required guest lecture', 'STAR', 'Listening & questions', 'Johari Window', 'Self-checks', 'Sources & boundaries'],
     overview: {
       title: 'Understand the audience before designing the message', intro: 'The course asks you to evaluate audience needs, choose an appropriate medium, and use planning and structure to improve complex communication.',
       lead: 'Intended meaning ≠ sent message ≠ interpreted meaning. Sending information does not establish understanding, agreement or commitment.',
@@ -105,7 +138,7 @@ const copy = {
     },
     empathy: {
       title: 'Empathy Forecast: Before → After → Bridge', intro: 'Sketch Group extends an empathy map from a present-state snapshot to an anticipated change, helping teams develop language relevant to their audience.',
-      cards: [['Before', 'Choose a specific audience and explore thinking, feeling, hearing, seeing, saying and doing. Identify concerns and pain points.'], ['After', 'Imagine how experience, feelings and behaviour should change if the product or communication succeeds. Move beyond a feature list.'], ['Bridge', 'Ask what the person needs to hear to move between the two states. Turn those answers into key messages, evidence and action cues.']],
+      cards: [['Before', 'Choose a specific audience and explore thinking, feeling, hearing, seeing, saying and doing. Identify concerns and pain points.'], ['After', 'For this lecture’s video task, imagine what viewers should think, feel and do after watching. Map the communication effect of the video.'], ['Bridge', 'Ask what the person needs to hear to move between the two states. Turn those answers into key messages, evidence and action cues.']],
       boundary: 'An Empathy Forecast generates hypotheses; it does not replace real user research. Separate imagined needs from needs validated with the audience.',
       example: 'Original study example: a mentor fears a feature-only demo → wants demonstrable user value → bridge the gap with one user task, an observed result and explicit limitations, then ask the mentor to restate the takeaway.',
     },
@@ -122,6 +155,38 @@ const copy = {
       workflow: 'Workshop → Script → Storyboard → Shoot → Edit → Final video. The course visual emphasises cutting material that does not serve the message and synchronising on-screen action with voiceover.',
       examples: 'Crazy Egg describes Dropbox’s broadly relatable problem, Facebook’s short feature scenarios and Salesforce’s sales workflow to illustrate audience differences. This summary uses the article’s descriptions, not independent viewing of its linked videos; historical marketing figures are not current performance guarantees.',
     },
+    guest: {
+      "title": "Required guest lecture: design a product video with Empathy Forecast",
+      "intro": "The approximately 44-minute guest lecture, Product Videos Made Easy, starts with the change you want in your audience, then works back to story, language and visuals. Times below follow the native captions.",
+      "cards": [
+            [
+                  "03:31–08:43 · Give viewers a reason to care",
+                  "Even a good product needs to be understood. Identify the audience, whether buyer and user differ, when they need it, their pain and their current workaround. Show a character struggling, introduce how the product relieves that struggle, then show the benefit in their life. Features support that story."
+            ],
+            [
+                  "13:47–16:42 · Lock the words before the pictures",
+                  "Workshop → Script → Storyboard → Shoot → Edit → Final video. Establish audience, message and language in the workshop. Review and lock the script before storyboarding; agree on the storyboard before filming. Once the script is fixed, voiceover, music and sound effects can be prepared in parallel."
+            ],
+            [
+                  "18:08–23:44 · Map Before and After",
+                  "Work with 4–6 people for 60–90 minutes using a whiteboard, sticky notes or an online board. Choose a specific audience member. Map thinking, feeling, seeing, saying, hearing and doing before the video, then describe the desired state after watching it."
+            ],
+            [
+                  "23:49–32:47 · Turn the red connections into script language",
+                  "Connect each Before and After category: what must viewers hear to make that shift? In the classroom example, an anxious parent needs concrete messages about child safety and flexible arrangements to feel reassured and optimistic. Use those answers in the script. This exercise plans how the video changes understanding and feelings. The audience may be prospective users or sponsors."
+            ],
+            [
+                  "32:53–36:41 · Tell a story people can feel",
+                  "Introduce a relatable character and convey emotion through expressions and circumstances, speaking to both heart and mind. Cut appealing but unnecessary lines (kill your darlings). Read aloud, adjust awkward wording and record again. A short video requires selection, not every idea from the workshop."
+            ],
+            [
+                  "36:49–40:17 · Make editing and voice support understanding",
+                  "Maintain movement on screen, speeding up drawing footage when useful. Synchronise on-screen words with the voiceover so viewers do not read and hear conflicting messages. Include human faces and emotions. In the recording, the teacher asks for expressive human narration and stresses that limited production skills do not remove the need for clarity and correct spelling."
+            ]
+      ],
+      "takeaway": "Before delivery, ask: who are we speaking to, what should change after watching, does each line help that change, and do the visuals and audio support the same message?",
+      "note": "Summarised from 389 native caption cues, which contain recognition errors; this is a synthesis rather than a verbatim quotation. Read recorded assignment advice alongside the current brief. The Q&A from 42:12 mentions the studio’s Adobe Premiere / After Effects workflow while allowing students to use tools that meet basic editing needs."
+},
     star: {
       title: 'STAR: demonstrate capability through experience', intro: 'Use it for behavioural interview prompts such as “Tell me about a time…”. Prepare real examples relevant to the role, not generic claims about yourself.',
       cards: [['Situation', 'Establish the specific context and challenge.'], ['Task', 'Explain your responsibility or goal, not merely the project background.'], ['Action', 'Describe what you did to address the challenge. Distinguish your contribution from the team’s contribution.'], ['Result', 'Explain the outcome or learning. Quantify when evidence exists; never invent a number.']],
@@ -147,8 +212,8 @@ const copy = {
       title: 'Apply the models to one situation', intro: 'Scenario: explain a product to a non-technical mentor. These original study questions are derived from the materials, not Moodle quiz questions or exam predictions.',
       quiz: [['Does sending a message establish successful communication?', 'No. Check whether the audience understood the intended meaning and produced the intended response. Sending, understanding, agreement and commitment are different.'], ['What does Lasswell ask you to plan for a mentor demo?', 'Who speaks, what they say, which channel they use, whom they address and what effect they seek. Consider expertise and credibility when choosing the speaker.'], ['Do a dropped connection and jargon need the same repair?', 'No. Repair transmission and recover omissions for the former; explain terminology, supply context and confirm meaning for the latter.'], ['Why can the same sentence mean different things to a teammate and a mentor?', 'Schramm highlights different shared experience, relationships, roles and cultural contexts. Supply background that the team may take for granted.'], ['What does Empathy Forecast add to a single empathy map?', 'An After state and the messages that bridge it from the Before snapshot. The audience assumptions still need validation.'], ['Can Brownlee’s three structures work together?', 'Yes. Known→Unknown connects context; General→Specific manages scope; Simple→Complex builds relationships progressively.'], ['What is the four-part product-video arc?', 'Opener → Problem statement → Solution → Call to action. Connect features to audience value rather than listing them.'], ['How does a storyboard differ from a script?', 'A script specifies words; a storyboard connects them to shots, sequence, angles, lighting and transitions, providing a shared plan before filming.'], ['How do Task and Action differ in STAR?', 'Task is your responsibility or goal; Action is what you actually did to fulfil it. Result adds the outcome or learning.'], ['What is risky about immediately solving the mentor’s concern?', 'It may be a Quick fix: answering before understanding facts and feelings. Clarify, restate and invite elaboration before proposing solutions.'], ['How do open, closed and leading questions differ?', 'Open questions explore; closed questions confirm and conclude; leading questions presume a preferred answer and should not masquerade as neutral feedback collection.'], ['How can you reduce a Johari blind spot without forcing disclosure?', 'Invite specific feedback and listen. Distinguish feedback from self-disclosure; share only what is appropriate to the task, trust and privacy boundaries.']],
     },
-    sourcesTitle: 'Sources and evidence boundaries', sourcesIntro: 'Ten of the eleven direct materials inform this guide; one audio transcript is pending. Original course PDFs, media, captions and images are not uploaded with the page. Public readings link to their sources.',
-    sourceLabels: { visual: 'Course visual · reviewed', intro: 'Native captions · 2:04 · 15 cues', lecture: 'Native captions · 12:55 · 107 cues', article: 'Public article · local text', pdf: 'Course PDF · reviewed', reading: 'Core pp. 318–323; Johari supplement pp. 330–332', pending: '5:45 · OmniVerse transcription pending · not used for claims' },
+    sourcesTitle: 'Sources and evidence boundaries', sourcesIntro: 'Eleven of the twelve direct materials inform this guide; one audio transcript is pending. Original course PDFs, media, captions and images are not uploaded with the page. Public readings link to their sources.',
+    sourceLabels: { guest: 'Native captions · 43:49 · 389 cues · required viewing', visual: 'Course visual · reviewed', intro: 'Native captions · 2:04 · 15 cues', lecture: 'Native captions · 12:55 · 107 cues', article: 'Public article · local text', pdf: 'Course PDF · reviewed', reading: 'Core pp. 318–323; Johari supplement pp. 330–332', pending: '5:45 · OmniVerse transcription pending · not used for claims' },
     pending: 'Audio summary transcription pending', pendingBody: 'Bypassing the brain’s hidden communication barriers is downloaded, but no native captions were found. This page does not infer its content; it can be added after OmniVerse transcription in the next round.',
     boundary: 'Video summaries use native captions, with model names checked against the course PDF. Examples and self-checks are explicitly original. Videos linked within the storyboard article were not independently viewed. Chapter 04 Exam Focus remains a placeholder while this Own-time guide is available.',
   },
@@ -156,9 +221,9 @@ const copy = {
 
 export default function Week07({ locale }: { locale: Locale }) {
   const c = copy[locale]
-  const ids = ['overview', 'models', 'empathy', 'structure', 'storyboard', 'star', 'listening', 'johari', 'review', 'sources']
+  const ids = ['overview', 'models', 'empathy', 'structure', 'storyboard', 'guest-lecture', 'star', 'listening', 'johari', 'review', 'sources']
   return (
-    <WeekLayout weekId="07" locale={locale} eyebrow="Week 07 · Effective communication" title={c.title} subtitle={c.subtitle} summary={c.summary} updated="07 Sep 2026" tags={[...c.tags]} toc={ids.map((id, i) => ({ id, label: c.toc[i] }))}>
+    <WeekLayout weekId="07" locale={locale} eyebrow="Week 07 · Effective communication" title={c.title} subtitle={c.subtitle} summary={c.summary} updated="16 Sep 2026" tags={[...c.tags]} toc={ids.map((id, i) => ({ id, label: c.toc[i] }))}>
       <ContentSection id="overview" index="01" title={c.overview.title} intro={c.overview.intro}>
         <LeadCard label={locale === 'zh' ? '核心原则' : 'Core principle'}>{c.overview.lead}</LeadCard>
         <div className="mt-4 grid gap-3 md:grid-cols-3">{c.overview.cards.map(([title, body]) => <InfoCard key={title} title={title} tone="blue">{body}</InfoCard>)}</div>
@@ -185,12 +250,17 @@ export default function Week07({ locale }: { locale: Locale }) {
         <Callout label="Production workflow">{c.storyboard.workflow}</Callout>
         <InfoCard title={locale === 'zh' ? '文章案例' : 'Article examples'} className="mt-4" tone="warm">{c.storyboard.examples}</InfoCard>
       </ContentSection>
-      <ContentSection id="star" index="06" title={c.star.title} intro={c.star.intro}>
+      <ContentSection id="guest-lecture" index="06" title={c.guest.title} intro={c.guest.intro}>
+        <div className="grid gap-3 md:grid-cols-2">{c.guest.cards.map(([title, body]) => <InfoCard key={title} title={title} tone="accent">{body}</InfoCard>)}</div>
+        <Callout label={locale === 'zh' ? '交付前自查' : 'Delivery check'}>{c.guest.takeaway}</Callout>
+        <Callout label={locale === 'zh' ? '字幕与课堂语境' : 'Captions and classroom context'}>{c.guest.note}</Callout>
+      </ContentSection>
+      <ContentSection id="star" index="07" title={c.star.title} intro={c.star.intro}>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{c.star.cards.map(([title, body]) => <InfoCard key={title} title={title} tone="blue">{body}</InfoCard>)}</div>
         <Callout label={locale === 'zh' ? '自拟示例' : 'Fictional example'}>{c.star.example}</Callout>
         <Callout label={locale === 'zh' ? '结构辨析' : 'Distinction'}>{c.star.note}</Callout>
       </ContentSection>
-      <ContentSection id="listening" index="07" title={c.listening.title} intro={c.listening.intro}>
+      <ContentSection id="listening" index="08" title={c.listening.title} intro={c.listening.intro}>
         <h3 className="mb-3 text-lg font-bold">{c.listening.barriersTitle}</h3>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">{c.listening.barriers.map(([title, body]) => <InfoCard key={title} title={title} tone="warm">{body}</InfoCard>)}</div>
         <h3 className="mb-3 mt-6 text-lg font-bold">{c.listening.responsesTitle}</h3>
@@ -198,14 +268,14 @@ export default function Week07({ locale }: { locale: Locale }) {
         <ResponsiveTable headers={[...c.listening.questionHeaders]} rows={c.listening.questions.map(row => [...row])} />
         <Callout label={locale === 'zh' ? '理解 ≠ 同意' : 'Understanding ≠ agreement'}>{c.listening.boundary}</Callout>
       </ContentSection>
-      <ContentSection id="johari" index="08" title={c.johari.title} intro={c.johari.intro}>
+      <ContentSection id="johari" index="09" title={c.johari.title} intro={c.johari.intro}>
         <ResponsiveTable headers={[...c.johari.headers]} rows={c.johari.rows.map(row => [...row])} />
         <Callout label={locale === 'zh' ? '信任与边界' : 'Trust and boundaries'}>{c.johari.note}</Callout>
       </ContentSection>
-      <ContentSection id="review" index="09" title={c.review.title} intro={c.review.intro}>
+      <ContentSection id="review" index="10" title={c.review.title} intro={c.review.intro}>
         <QuizAccordion items={c.review.quiz.map(([question, answer]) => ({ question, answer }))} />
       </ContentSection>
-      <ContentSection id="sources" index="10" title={c.sourcesTitle} intro={c.sourcesIntro}>
+      <ContentSection id="sources" index="11" title={c.sourcesTitle} intro={c.sourcesIntro}>
         <div className="grid gap-3 sm:grid-cols-2">{sources.map(([title, kind, url]) => <InfoCard key={title} title={title} tone={kind === 'pending' ? 'warm' : 'plain'}><p>{c.sourceLabels[kind]}</p>{url && <a href={url} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-2 font-semibold text-[var(--week-accent)] underline underline-offset-4">{locale === 'zh' ? '阅读原文' : 'Read source'}<ExternalLink className="size-3.5" /></a>}</InfoCard>)}</div>
         <Callout label={c.pending}>{c.pendingBody}</Callout>
         <Callout label={locale === 'zh' ? '证据边界' : 'Evidence boundary'}>{c.boundary}</Callout>
