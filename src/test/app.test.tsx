@@ -185,7 +185,7 @@ describe('study hub routes', () => {
     }
   })
 
-  it('switches Week 07 language, visits the Chapter 04 placeholder and returns', async () => {
+  it('switches Week 07 language, visits Chapter 04 and returns to the published weekly guide', async () => {
     const user = userEvent.setup()
     const router = await renderRoute('/week/07?lang=zh')
     expect(await screen.findByText('理解受众，再设计信息')).toBeInTheDocument()
@@ -194,15 +194,40 @@ describe('study hub routes', () => {
     expect(screen.queryByText('理解受众，再设计信息')).not.toBeInTheDocument()
     expect(router.state.location.search.lang).toBe('en')
     await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
-    expect(await screen.findByText('Exam page reserved')).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Complex Communication' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/04')
-    expect(document.querySelectorAll('#practice button')).toHaveLength(0)
+    expect(document.querySelectorAll('#practice07 button, #practice08 button, #critical button')).toHaveLength(28)
     await user.click(screen.getByRole('button', { name: '中文' }))
-    expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: '复习地图：借鉴 official 的考法' })).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
     expect(await screen.findByText('理解受众，再设计信息')).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/week/07')
     expect(router.state.location.search.lang).toBe('zh')
+  })
+
+  it.each(['zh', 'en'] as const)('renders complete Chapter 04 content and working answers in %s', async (locale) => {
+    const user = userEvent.setup()
+    await renderRoute(`/chapter/04?lang=${locale}`)
+    expect(await screen.findByRole('heading', { name: 'Complex Communication' })).toBeInTheDocument()
+    expect(screen.getByText('Chapter 04 · Weeks 07–08')).toBeInTheDocument()
+    expect(document.querySelectorAll('main section')).not.toHaveLength(0)
+    for (const id of ['models', 'listening', 'questions', 'empathy', 'structures', 'video', 'planning', 'pitch', 'reports', 'email', 'visuals', 'traps', 'method', 'sources']) {
+      expect(document.getElementById(id)).not.toBeNull()
+    }
+    const questions = document.querySelectorAll<HTMLButtonElement>('#practice07 button, #practice08 button, #critical button')
+    expect(questions).toHaveLength(28)
+    for (const question of questions) {
+      await user.click(question)
+      expect(question).toHaveAttribute('aria-expanded', 'true')
+      const answer = document.getElementById(question.getAttribute('aria-controls')!)?.textContent
+      expect(answer).toMatch(locale === 'zh' ? /^(答案：|参考答案：)/ : /^(Answer:|Worked answer:)/)
+      expect(answer!.length).toBeGreaterThan(30)
+    }
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
+    expect(screen.getByText(/quiz\/chapter01-official.md/)).toBeInTheDocument()
+    expect(screen.getAllByText(locale === 'zh' ? /不是 Moodle 官方题/ : /not Moodle official questions/)).toHaveLength(3)
   })
 
   it('offers Week 07 in the week menu and Chapter 04 in the chapter menu', async () => {
@@ -213,8 +238,8 @@ describe('study hub routes', () => {
     expect(await screen.findByRole('heading', { name: 'Effective Communication' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/week/07')
     await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
-    expect(await screen.findByText('Exam page reserved')).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Complex Communication' })).toBeInTheDocument()
     await user.click(screen.getByRole('combobox', { name: 'Select chapter' }))
-    expect(screen.getByRole('option', { name: /Chapter 04.*Coming soon/ })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: /Chapter 04.*Published/ })).toBeInTheDocument()
   })
 })

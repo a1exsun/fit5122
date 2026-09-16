@@ -1,4 +1,4 @@
-import type { WeekId } from '@/content/weeks'
+import { WEEKS, type WeekId } from '@/content/weeks'
 
 export const CHAPTER_IDS = ['01', '02', '03', '04'] as const
 export type ChapterId = (typeof CHAPTER_IDS)[number]
@@ -7,7 +7,8 @@ export type ChapterStatus = 'published' | 'placeholder'
 interface ChapterMetadata {
   id: ChapterId
   status: ChapterStatus
-  weeks: readonly WeekId[]
+  // Material coverage may extend beyond the published weekly guides.
+  weeks: readonly (WeekId | '08')[]
   accent: string
   softAccent: string
   heroAccent: string
@@ -17,7 +18,7 @@ export const CHAPTERS = [
   { id: '01', status: 'published', weeks: ['01'], accent: '#7858a6', softAccent: '#ebe3f6', heroAccent: '#d9c7ee' },
   { id: '02', status: 'published', weeks: ['02', '03', '04'], accent: '#356c78', softAccent: '#dcecef', heroAccent: '#a9d5dd' },
   { id: '03', status: 'published', weeks: ['05', '06'], accent: '#b96b25', softAccent: '#f7e5d1', heroAccent: '#f3c78f' },
-  { id: '04', status: 'placeholder', weeks: ['07'], accent: '#4269a2', softAccent: '#e0e9f6', heroAccent: '#f5c789' },
+  { id: '04', status: 'published', weeks: ['07', '08'], accent: '#4269a2', softAccent: '#e0e9f6', heroAccent: '#f5c789' },
 ] as const satisfies readonly ChapterMetadata[]
 
 export type ChapterDefinition = (typeof CHAPTERS)[number]
@@ -35,5 +36,6 @@ export function getChapterForWeek(weekId: WeekId) {
 }
 
 export function getSummaryWeekForChapter(chapterId: ChapterId) {
-  return getChapter(chapterId)!.weeks.at(-1)!
+  const chapter = getChapter(chapterId)!
+  return WEEKS.filter((week) => week.status === 'published' && chapter.weeks.some((id) => id === week.id)).at(-1)!.id
 }

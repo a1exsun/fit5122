@@ -22,12 +22,12 @@ describe('week registry', () => {
     expect(validateLanguageSearch({ lang: 'fr' })).toEqual({})
   })
 
-  it('maps every week into a published chapter or the Chapter 04 placeholder', () => {
+  it('maps published week guides into chapters with complete material coverage', () => {
     expect(CHAPTERS.map((chapter) => ({ id: chapter.id, weeks: chapter.weeks, status: chapter.status }))).toEqual([
       { id: '01', weeks: ['01'], status: 'published' },
       { id: '02', weeks: ['02', '03', '04'], status: 'published' },
       { id: '03', weeks: ['05', '06'], status: 'published' },
-      { id: '04', weeks: ['07'], status: 'placeholder' },
+      { id: '04', weeks: ['07', '08'], status: 'published' },
     ])
     expect(getChapterForWeek('03').id).toBe('02')
     expect(getSummaryWeekForChapter('02')).toBe('04')
