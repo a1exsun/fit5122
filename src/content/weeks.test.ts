@@ -4,20 +4,21 @@ import { LATEST_WEEK_ID, WEEKS, getWeek, isWeekId } from '@/content/weeks'
 import { validateLanguageSearch } from '@/lib/search'
 
 describe('week registry', () => {
-  it('selects Week 07 as the latest published guide', () => {
-    expect(LATEST_WEEK_ID).toBe('07')
+  it('selects Week 08 as the latest published guide', () => {
+    expect(LATEST_WEEK_ID).toBe('08')
     expect(getWeek(LATEST_WEEK_ID)?.status).toBe('published')
   })
 
-  it('publishes all seven week guides', () => {
-    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['01', '02', '03', '04', '05', '06', '07'])
+  it('publishes all eight week guides', () => {
+    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['01', '02', '03', '04', '05', '06', '07', '08'])
     expect(WEEKS.filter((week) => week.status === 'placeholder')).toEqual([])
   })
 
   it('validates week ids and language search values', () => {
     expect(isWeekId('04')).toBe(true)
     expect(isWeekId('07')).toBe(true)
-    expect(isWeekId('08')).toBe(false)
+    expect(isWeekId('08')).toBe(true)
+    expect(isWeekId('09')).toBe(false)
     expect(validateLanguageSearch({ lang: 'en' })).toEqual({ lang: 'en' })
     expect(validateLanguageSearch({ lang: 'fr' })).toEqual({})
   })
@@ -35,7 +36,7 @@ describe('week registry', () => {
     expect(isChapterId('04')).toBe(true)
     expect(isChapterId('05')).toBe(false)
     expect(getChapterForWeek('07').id).toBe('04')
-    expect(getSummaryWeekForChapter('04')).toBe('07')
+    expect(getSummaryWeekForChapter('04')).toBe('08')
     for (const week of WEEKS) expect(getChapterForWeek(week.id)).toBeDefined()
   })
 })

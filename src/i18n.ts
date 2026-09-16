@@ -19,7 +19,7 @@ const resources = {
       placeholderBody: '资料位置已经预留。未来补充内容时，将自动沿用同一套导航、双语与响应式布局。',
       backLatest: '返回最新一周',
       notFoundTitle: '没有找到这个页面',
-      notFoundBody: '请选择 Week 01–07，或返回最新已发布的学习页。',
+      notFoundBody: '请选择 Week 01–08，或返回最新已发布的学习页。',
       sourceNote: '课程私有资料仅列出来源名称，不在公开站点上传原文件。',
       contents: '本页目录',
       updated: '更新',
@@ -31,6 +31,7 @@ const resources = {
         '05': { label: 'Week 05', title: '质量、可靠性与专业责任' },
         '06': { label: 'Week 06', title: '软件质量的衡量与管理' },
         '07': { label: 'Week 07', title: '有效沟通、受众与叙事结构' },
+        '08': { label: 'Week 08', title: '商业沟通、数据表达与职场礼仪' },
       },
       chapters: {
         '01': { label: 'Chapter 01', title: '专业沟通与负责任使用 AI', weeks: 'Week 01' },
@@ -56,7 +57,7 @@ const resources = {
       placeholderBody: 'The route is ready. Future content will automatically inherit the same navigation, bilingual support, and responsive layout.',
       backLatest: 'Back to latest week',
       notFoundTitle: 'Page not found',
-      notFoundBody: 'Choose Week 01–07 or return to the latest published study guide.',
+      notFoundBody: 'Choose Week 01–08 or return to the latest published study guide.',
       sourceNote: 'Private course materials are named as sources but their files are not uploaded to the public site.',
       contents: 'On this page',
       updated: 'Updated',
@@ -68,6 +69,7 @@ const resources = {
         '05': { label: 'Week 05', title: 'Quality, Reliability & Professional Responsibility' },
         '06': { label: 'Week 06', title: 'Measuring & Managing Software Quality' },
         '07': { label: 'Week 07', title: 'Effective Communication, Audiences & Storytelling' },
+        '08': { label: 'Week 08', title: 'Business Communication, Data Presentation & Etiquette' },
       },
       chapters: {
         '01': { label: 'Chapter 01', title: 'Professional Communication & Responsible AI', weeks: 'Week 01' },

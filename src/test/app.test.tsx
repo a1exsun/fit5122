@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'Effective Communication' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/07')
+    expect(await screen.findByRole('heading', { name: 'Business Communication' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/08')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {
@@ -200,8 +200,8 @@ describe('study hub routes', () => {
     await user.click(screen.getByRole('button', { name: '中文' }))
     expect(await screen.findByRole('heading', { name: '复习地图：借鉴 official 的考法' })).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
-    expect(await screen.findByText('理解受众，再设计信息')).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/07')
+    expect(await screen.findByText('先确定希望受众做什么')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/08')
     expect(router.state.location.search.lang).toBe('zh')
   })
 
@@ -242,4 +242,39 @@ describe('study hub routes', () => {
     await user.click(screen.getByRole('combobox', { name: 'Select chapter' }))
     expect(screen.getByRole('option', { name: /Chapter 04.*Published/ })).toBeInTheDocument()
   })
+
+  it.each(['zh', 'en'] as const)('renders Week 08 sources, anchors and working self-checks in %s', async (locale) => {
+    const user = userEvent.setup()
+    await renderRoute(`/week/08?lang=${locale}`)
+    expect(await screen.findByRole('heading', { name: 'Business Communication' })).toBeInTheDocument()
+    for (const id of ['planning', 'channels', 'reports', 'pitch', 'email', 'visuals', 'charts', 'data', 'etiquette']) {
+      expect(document.getElementById(id)?.textContent?.length).toBeGreaterThan(100)
+    }
+    expect(document.querySelectorAll('#sources h3')).toHaveLength(13)
+    expect(screen.getByText(locale === 'zh' ? '音频摘要待转录' : 'Audio summary transcription pending')).toBeInTheDocument()
+    const questions = document.querySelectorAll<HTMLButtonElement>('#review button')
+    expect(questions).toHaveLength(12)
+    for (const question of questions) {
+      await user.click(question)
+      expect(question).toHaveAttribute('aria-expanded', 'true')
+      expect(document.getElementById(question.getAttribute('aria-controls')!)?.textContent?.length).toBeGreaterThan(30)
+    }
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
+  })
+
+  it('selects Week 08 and switches its language while preserving the route', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/07?lang=en')
+    await user.click(await screen.findByRole('combobox', { name: 'Select week' }))
+    await user.click(screen.getByRole('option', { name: /Week 08/ }))
+    expect(await screen.findByText('Start with the action your audience needs to take')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: '中文' }))
+    expect(await screen.findByText('先确定希望受众做什么')).toBeInTheDocument()
+    expect(screen.queryByText('Start with the action your audience needs to take')).not.toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/08')
+    expect(router.state.location.search.lang).toBe('zh')
+  })
+
 })

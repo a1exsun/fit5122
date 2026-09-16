@@ -4,7 +4,7 @@
   <p><strong>Monash · FIT5122 Professional Practice</strong></p>
   <p><strong>2026 Semester 2 · Work in progress (WIP)</strong></p>
   <p>Study materials are being updated throughout the semester.</p>
-  <p>Own-time notes for Weeks 01–07 and chapter revision guides through Weeks 07–08, available in English and Chinese.</p>
+  <p>Own-time notes for Weeks 01–08 and chapter revision guides through Weeks 07–08, available in English and Chinese.</p>
   <h3>🌐 <a href="https://fit5122.xsun.work">fit5122.xsun.work</a></h3>
   <p>
     <a href="https://fit5122.xsun.work/?lang=zh">Read in Chinese</a> ·
@@ -31,8 +31,10 @@ Choose a week at the top of the site, or switch to **Exam Focus** to revise by c
 | **Week 04** | Cross-cultural Communication & Teamwork | [Chinese](https://fit5122.xsun.work/week/04?lang=zh) · [English](https://fit5122.xsun.work/week/04?lang=en) |
 | **Week 05** | Quality, Reliability & Professional Responsibility | [Chinese](https://fit5122.xsun.work/week/05?lang=zh) · [English](https://fit5122.xsun.work/week/05?lang=en) |
 | **Week 06** | Measuring & Managing Software Quality | [Chinese](https://fit5122.xsun.work/week/06?lang=zh) · [English](https://fit5122.xsun.work/week/06?lang=en) |
-
 | **Week 07** | Effective Communication, Audiences & Storytelling | [Chinese](https://fit5122.xsun.work/week/07?lang=zh) · [English](https://fit5122.xsun.work/week/07?lang=en) |
+| **Week 08** | Business Communication, Data Presentation & Etiquette | [Chinese](https://fit5122.xsun.work/week/08?lang=zh) · [English](https://fit5122.xsun.work/week/08?lang=en) |
+
+Week08 covers 12 verified Own-time materials, including both optional readings, with 12 original self-checks. The untranscribed audio summary is explicitly excluded.
 
 ### Chapter revision
 
@@ -43,7 +45,7 @@ Choose a week at the top of the site, or switch to **Exam Focus** to revise by c
 | **Chapter 03** | Quality & Reliability | Week 05–06 | ✅ [Chinese](https://fit5122.xsun.work/chapter/03?lang=zh) · [English](https://fit5122.xsun.work/chapter/03?lang=en) |
 | **Chapter 04** | Complex Communication | Week 07–08 | ✅ [Chinese](https://fit5122.xsun.work/chapter/04?lang=zh) · [English](https://fit5122.xsun.work/chapter/04?lang=en) |
 
-Chapter04 covers Week07–08 materials, with 24 original multiple-choice questions and four worked critical evaluations. The question styles draw on the Chapter01–02 official quizzes; these are not official Chapter04 questions. Two untranscribed audio summaries are explicitly excluded from verified coverage. The Own-time button returns to the latest published weekly guide within the chapter (currently Week07).
+Chapter04 covers Week07–08 materials, with 24 original multiple-choice questions and four worked critical evaluations. The question styles draw on the Chapter01–02 official quizzes; these are not official Chapter04 questions. Two untranscribed audio summaries are explicitly excluded from verified coverage. The Own-time button returns to the latest published weekly guide within the chapter (currently Week08).
 
 ## Feedback
 

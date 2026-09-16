@@ -7,8 +7,7 @@ export type ChapterStatus = 'published' | 'placeholder'
 interface ChapterMetadata {
   id: ChapterId
   status: ChapterStatus
-  // Material coverage may extend beyond the published weekly guides.
-  weeks: readonly (WeekId | '08')[]
+  weeks: readonly WeekId[]
   accent: string
   softAccent: string
   heroAccent: string
