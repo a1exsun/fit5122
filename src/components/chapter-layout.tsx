@@ -33,8 +33,10 @@ export function ChapterLayout({ chapterId, locale, eyebrow, title, subtitle, sum
       updated={updated}
       tags={tags}
       toc={toc}
-      footerPrimary={`FIT5122 · Chapter ${chapterId} · Exam Focus`}
-      footerSecondary={locale === 'zh' ? '基于 key-points 与模拟题 · 双语复习页' : 'Based on key points and practice questions · Bilingual review'}
+      footerPrimary={`FIT5122 · ${t(`chapters.${chapterId}.label`)} · Exam Focus`}
+      footerSecondary={chapterId === 'complex-communication'
+        ? (locale === 'zh' ? '规格原文 · 课程知识 · 真实案例模拟' : 'Assessment brief · Course concepts · Real incident simulations')
+        : (locale === 'zh' ? '基于 key-points 与模拟题 · 双语复习页' : 'Based on key points and practice questions · Bilingual review')}
       contentsLabel={t('contents')}
     >
       {children}

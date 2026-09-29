@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryHistory, createRouter, RouterProvider } from '@tanstack/react-router'
 import { afterEach, describe, expect, it } from 'vitest'
@@ -275,6 +275,47 @@ describe('study hub routes', () => {
     expect(screen.queryByText('Start with the action your audience needs to take')).not.toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/week/08')
     expect(router.state.location.search.lang).toBe('zh')
+  })
+
+  it('opens the standalone assessment from the chapter menu without replacing Chapter 04', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/chapter/04?lang=zh')
+    await user.click(await screen.findByRole('combobox', { name: '选择章节' }))
+    await user.click(screen.getByRole('option', { name: /Complex Communication/ }))
+    expect(await screen.findByRole('heading', { name: '规格原文 · 五页完整保留' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/complex-communication')
+    await user.click(screen.getByRole('button', { name: 'EN' }))
+    expect(await screen.findByRole('heading', { name: 'Original specification · all five pages' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/complex-communication')
+    expect(router.state.location.search.lang).toBe('en')
+    await user.click(screen.getByRole('button', { name: 'Own-time Summary' }))
+    expect(await screen.findByRole('heading', { name: 'Business Communication' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/08')
+  })
+
+  it.each(['zh', 'en'] as const)('makes all filled assessment templates accessible and printable in %s', async locale => {
+    const user = userEvent.setup()
+    await renderRoute(`/chapter/complex-communication?lang=${locale}`)
+    expect(await screen.findByRole('heading', { name: 'Complex Communication', level: 1 })).toBeInTheDocument()
+    const details = () => [...document.querySelectorAll<HTMLDetailsElement>('[data-stakeholder]')]
+    expect(details()).toHaveLength(18)
+    expect(document.querySelectorAll('#specification img')).toHaveLength(5)
+    expect(screen.getByRole('link', { name: /完整规格 PDF|complete specification PDF/ })).toHaveAttribute('href', '/complex-communication/specification.pdf')
+    await user.click(screen.getByRole('button', { name: /展开全部 18|Expand all 18/ }))
+    await waitFor(() => expect(details().every(d => d.open)).toBe(true))
+    for (const detail of details()) {
+      expect(detail.querySelectorAll('[data-completed-template] dt')).toHaveLength(6)
+      expect(detail.querySelectorAll('tbody tr')).toHaveLength(6)
+    }
+    await user.click(screen.getByRole('button', { name: /收起全部模板|Collapse all templates/ }))
+    await waitFor(() => expect(details().every(d => !d.open)).toBe(true))
+    await user.click(details()[0].querySelector('summary')!)
+    await waitFor(() => expect(details()[0].open).toBe(true))
+    act(() => window.dispatchEvent(new Event('beforeprint')))
+    await waitFor(() => expect(details().every(d => d.open)).toBe(true))
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
   })
 
 })

@@ -93,4 +93,16 @@ summary {
 
   [data-print-hidden] { display: none !important; }
   [data-print-break-inside] { break-inside: avoid; }
+
+  .assessment-guide [data-print-break-inside] { break-inside: auto; }
+  .assessment-guide .overflow-x-auto { overflow: visible; }
+  .assessment-guide table { min-width: 0; table-layout: fixed; }
+  .assessment-guide th,
+  .assessment-guide td { padding: 6px 8px; overflow-wrap: anywhere; }
+  .assessment-guide tr,
+  .assessment-guide [data-completed-template] > div { break-inside: avoid; }
+  .assessment-guide h2,
+  .assessment-guide h3,
+  .assessment-guide h4,
+  .assessment-guide summary { break-after: avoid; }
 }

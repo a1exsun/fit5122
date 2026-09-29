@@ -29,6 +29,7 @@ describe('week registry', () => {
       { id: '02', weeks: ['02', '03', '04'], status: 'published' },
       { id: '03', weeks: ['05', '06'], status: 'published' },
       { id: '04', weeks: ['07', '08'], status: 'published' },
+      { id: 'complex-communication', weeks: ['07', '08'], status: 'published' },
     ])
     expect(getChapterForWeek('03').id).toBe('02')
     expect(getSummaryWeekForChapter('02')).toBe('04')
@@ -37,6 +38,8 @@ describe('week registry', () => {
     expect(isChapterId('05')).toBe(false)
     expect(getChapterForWeek('07').id).toBe('04')
     expect(getSummaryWeekForChapter('04')).toBe('08')
+    expect(isChapterId('complex-communication')).toBe(true)
+    expect(getSummaryWeekForChapter('complex-communication')).toBe('08')
     for (const week of WEEKS) expect(getChapterForWeek(week.id)).toBeDefined()
   })
 })

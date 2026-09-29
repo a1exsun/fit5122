@@ -34,6 +34,7 @@ const resources = {
         '08': { label: 'Week 08', title: '商业沟通、数据表达与职场礼仪' },
       },
       chapters: {
+        'complex-communication': { label: 'Complex Communication', title: '考核规格与真实案例演练', weeks: 'Week 09 Applied Session' },
         '01': { label: 'Chapter 01', title: '专业沟通与负责任使用 AI', weeks: 'Week 01' },
         '02': { label: 'Chapter 02', title: '团队、领导力与跨文化协作', weeks: 'Week 02–04' },
         '03': { label: 'Chapter 03', title: '质量与可靠性', weeks: 'Week 05–06' },
@@ -72,6 +73,7 @@ const resources = {
         '08': { label: 'Week 08', title: 'Business Communication, Data Presentation & Etiquette' },
       },
       chapters: {
+        'complex-communication': { label: 'Complex Communication', title: 'Assessment brief & real incident practice', weeks: 'Week 09 Applied Session' },
         '01': { label: 'Chapter 01', title: 'Professional Communication & Responsible AI', weeks: 'Week 01' },
         '02': { label: 'Chapter 02', title: 'Teams, Leadership & Cross-cultural Collaboration', weeks: 'Weeks 02–04' },
         '03': { label: 'Chapter 03', title: 'Quality & Reliability', weeks: 'Weeks 05–06' },

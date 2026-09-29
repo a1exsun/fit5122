@@ -44,8 +44,11 @@ Week08 covers 12 verified Own-time materials, including both optional readings, 
 | **Chapter 02** | Teams, Leadership & Cross-cultural Collaboration | Week 02–04 | ✅ [Chinese](https://fit5122.xsun.work/chapter/02?lang=zh) · [English](https://fit5122.xsun.work/chapter/02?lang=en) |
 | **Chapter 03** | Quality & Reliability | Week 05–06 | ✅ [Chinese](https://fit5122.xsun.work/chapter/03?lang=zh) · [English](https://fit5122.xsun.work/chapter/03?lang=en) |
 | **Chapter 04** | Complex Communication | Week 07–08 | ✅ [Chinese](https://fit5122.xsun.work/chapter/04?lang=zh) · [English](https://fit5122.xsun.work/chapter/04?lang=en) |
+| **Complex Communication** | Standalone assessment brief, HD interpretation & real-incident practice | Week 09 workshop; Week 07–08 concepts | [Chinese](https://fit5122.xsun.work/chapter/complex-communication?lang=zh) · [English](https://fit5122.xsun.work/chapter/complex-communication?lang=en) |
 
 Chapter04 covers Week07–08 materials, with 24 original multiple-choice questions and four worked critical evaluations. The question styles draw on the Chapter01–02 official quizzes; these are not official Chapter04 questions. Two untranscribed audio summaries are explicitly excluded from verified coverage. The Own-time button returns to the latest published weekly guide within the chapter (currently Week08).
+
+The separate **Complex Communication** assessment chapter preserves the five-page specification, explains its 10/20/50/20 rubric and connects the requirements to course concepts. Three sourced real incidents (CrowdStrike 2024, Medibank 2022 and Optus 2023) each have six stakeholder forecasts and fully filled six-field communication plans, ethical analysis, manager comments and a briefing. Templates and downloadable Markdown answers are in English in both language views; guidance and interpretation are bilingual. Historical facts, later findings and original exercise assumptions are explicitly separated. These are practice answers targeting HD descriptors, not official solutions or a grade guarantee. Print opens every stakeholder template automatically.
 
 ## Feedback
 
