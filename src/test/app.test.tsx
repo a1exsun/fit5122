@@ -196,7 +196,7 @@ describe('study hub routes', () => {
     await user.click(screen.getByRole('button', { name: 'Exam Focus' }))
     expect(await screen.findByRole('heading', { name: 'Complex Communication' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/04')
-    expect(document.querySelectorAll('#practice07 button, #practice08 button, #critical button')).toHaveLength(28)
+    expect(document.querySelectorAll('#practice07 button, #practice08 button, #critical button')).toHaveLength(42)
     await user.click(screen.getByRole('button', { name: '中文' }))
     expect(await screen.findByRole('heading', { name: '复习地图：借鉴 official 的考法' })).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
@@ -211,11 +211,27 @@ describe('study hub routes', () => {
     expect(await screen.findByRole('heading', { name: 'Complex Communication' })).toBeInTheDocument()
     expect(screen.getByText('Chapter 04 · Weeks 07–08')).toBeInTheDocument()
     expect(document.querySelectorAll('main section')).not.toHaveLength(0)
-    for (const id of ['models', 'listening', 'questions', 'empathy', 'structures', 'video', 'planning', 'pitch', 'reports', 'email', 'visuals', 'traps', 'method', 'sources']) {
+    for (const id of ['models', 'listening', 'questions', 'empathy', 'structures', 'video', 'planning', 'pitch', 'reports', 'email', 'visuals', 'evidence', 'tutorials', 'workshop', 'traps', 'method', 'sources']) {
       expect(document.getElementById(id)).not.toBeNull()
     }
     const questions = document.querySelectorAll<HTMLButtonElement>('#practice07 button, #practice08 button, #critical button')
-    expect(questions).toHaveLength(28)
+    expect(questions).toHaveLength(42)
+    expect(document.querySelectorAll('#practice07 button')).toHaveLength(18)
+    expect(document.querySelectorAll('#practice08 button')).toHaveLength(18)
+    expect(document.querySelectorAll('#critical button')).toHaveLength(6)
+    const workshop = document.getElementById('workshop')!
+    expect(workshop).toHaveTextContent(locale === 'zh' ? '60 秒以内' : '60 seconds or less')
+    for (const product of ['Single-Sock GPS Tracker', 'Solar-Powered Night Light', 'Bluetooth-Enabled Banana', '5G-Connected Emotional Support Pet Rock', 'Mute Button for Real Life']) {
+      expect(workshop).toHaveTextContent(product)
+    }
+    const tutorials = document.getElementById('tutorials')!
+    for (const week of ['W07', 'W08']) {
+      for (let question = 1; question <= 4; question++) expect(tutorials).toHaveTextContent(`${week} Q${question}`)
+    }
+    expect(tutorials).toHaveTextContent('W07 PDF Q4')
+    expect(document.getElementById('visuals')).toHaveTextContent('histogram')
+    const multipleSelections = Array.from(questions).filter(question => /^(多选|Select all that apply)/.test(question.textContent!.replace(/^\d+/, '')))
+    expect(multipleSelections).toHaveLength(8)
     for (const question of questions) {
       await user.click(question)
       expect(question).toHaveAttribute('aria-expanded', 'true')
@@ -227,6 +243,10 @@ describe('study hub routes', () => {
       expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
     }
     expect(screen.getByText(/quiz\/chapter01-official.md/)).toBeInTheDocument()
+    expect(screen.getByText(/quiz\/chapter03-official.md/)).toBeInTheDocument()
+    expect(screen.getByText(/week08\/real-time\/Week 8 Real-time Activities.md/)).toBeInTheDocument()
+    expect(document.getElementById('method')).toHaveTextContent('40%')
+    expect(document.getElementById('sources')).not.toHaveTextContent(locale === 'zh' ? '本地只有 own-time' : 'Only Week08 own-time material')
     expect(screen.getAllByText(locale === 'zh' ? /不是 Moodle 官方题/ : /not Moodle official questions/)).toHaveLength(3)
   })
 

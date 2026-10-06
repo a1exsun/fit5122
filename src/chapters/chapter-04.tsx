@@ -4,7 +4,8 @@ import { Callout, ContentSection, LeadCard, ResponsiveTable, SourceList } from '
 import type { Locale } from '@/i18n'
 
 const sources = [
-  'quiz/chapter01-official.md · Q1–4; quiz/chapter02-official.md · Q1–6 (question styles only)',
+  'quiz/chapter01-official.md · Q1–4; quiz/chapter02-official.md · Q1–6; quiz/chapter03-official.md · Q1–6 (question styles only)',
+  'quiz/rubric.md · Identification of Issues 30%; Application of Strategies / Concepts 30%; Justification & Professional Judgement 40%',
   'week07/own-time/transcripts/FIT5122 - Chapter 4 Complex Communication - native captions.txt',
   'week07/own-time/transcripts/FIT5122 Communications Theories - native captions.txt · 00:40–12:38',
   'week07/own-time/FIT5122 Communication Theories.pdf · pp. 1–4; Communications Theories.png',
@@ -22,25 +23,30 @@ const sources = [
   'week08/own-time/Workplace Etiquette - The Unwritten Rules of Business Success.pdf · Sabath (2007), printed pp. 53–59',
   'week08/own-time/How to use visuals in presentations.md; 10 tips for presenting data.md; Tips for choosing which chart to use.md',
   'week08/own-time/How to Tell a Story With Data - A Guide for Beginners.md (optional)',
+  'week08/real-time/Week 8 Real-time Activities.md · tutorial Q1–4 and elevator-pitch workshop',
+  'week08/real-time/FIT5122 - Applied Session Plan with Notes - Week 8 (2).pdf · pp. 3–4, 6–8',
 ]
 
 const copy = {
   zh: {
     subtitle: 'Weeks 07–08 · 从共同理解到可信、可行动的专业表达',
-    summary: '将两周的讲座、指定阅读与 Week07 课堂讨论整合为概念辨析、情境决策和批判性评价。练习参照前两章 official 的出题方式，覆盖沟通模型、受众、倾听、叙事、组织渠道、报告、邮件和数据呈现。',
+    summary: '整合 Week07–08 的讲座、指定阅读、课堂讨论与 pitch 工作坊。参照前三章 official 的定义、最佳行动、多选及证据分析题，建立从沟通模型、倾听、受众与叙事，到组织渠道、报告、邮件和数据呈现的完整复习线。',
     lead: '先明确受众与目标，再选择渠道和结构；用反馈检查意义，用证据支持说服，最后落实下一步。Sent ≠ understood ≠ agreed ≠ committed。',
-    tags: ['Weeks 07–08', '中英双语', '24 道选择题 + 4 道批判题', '自编练习 · 非官方题'],
+    tags: ['Weeks 07–08', '中英双语', '36 道选择题 + 6 道综合题', '自编练习 · 非官方题'],
     sections: [
       {
         id: 'map', title: '复习地图：借鉴 official 的考法',
-        intro: '本地只有 Chapter01、02 的 official 题目，没有 Chapter04 官方题。以下排序是复习组织方式，不是考试预测。',
+        intro: '以本地 Chapter01–03 official 题目校准答题方式，再用 Week07–08 材料确定知识范围。本地没有 Chapter04 官方题；以下练习为自编。',
         headers: ['题型依据', '本章练什么', '作答规则'],
         rows: [
           ['Chapter01 Q1–2 · best / most directly', '限时演示、邮件无回应、政策误解、产品视频无说服力。', '找题干中的具体失败机制，选能直接修复它的行动；不要被“看起来也有用”的选项带偏。'],
           ['Chapter02 Q1、Q3 · 定义与相关属性', '三种模型、formal / informal、六种倾听回应、STAR 与 PSB。', '抓定义所对应的维度；相关术语不等于同一个概念。All of the above 要逐项判断。'],
           ['Chapter02 Q2、Q4、Q5 · NOT / not a feature', '区分过程步骤、模型组成、倾听障碍与回应、报告与 introduction。', '先圈出否定词，再按具体模型判断；一般正确的行为也可能不属于题目问的阶段或类别。'],
+          ['Chapter03 Q2、Q4、Q5 · 多选与证据辨析', '哪些行动支持沟通；哪些观测证明受众理解；哪些只是准备或工具。', '逐项判断，不套单选思路。过程、媒介和结果证据要区分；仅选能回答题干评价对象的选项。'],
+          ['Chapter03 Q3、Q6 · 情境适配与分问作答', '邮件已发、视频未崩溃、团队排练顺利，能否证明理解与效果？', '按受众和风险选策略；分开回答概念、现有证据不足、具体事件的含义、两项建议及各自产生的证据。'],
           ['Chapter01 Q4、Chapter02 Q6 · critically evaluate', '导师不理解、视频改稿、组织变更、误导性图表。', '明确立场，解释机制，比较方案与约束，提出具体行动和验证；仅列术语不构成评价。'],
           ['Week07 real-time · 四组讨论', '组织为何重视沟通；Lasswell / Shannon–Weaver；Schramm 与导师；产品视频或沟通规划。', 'Moodle Q4 问 compelling product video，PDF Q4 问规划及工具；两种都覆盖。Q3 的 PDF 版本还包含 research stakeholders。'],
+          ['Week08 real-time · 四组讨论 + 工作坊', '正式/非正式渠道；给经理/导师的邮件；呈现数据的三个因素；好坏 pitch；60 秒内产品介绍。', '每题都需要解释 why。工作坊先独立写关键词，再团队选择、组合草稿、向全班展示并取得反馈。'],
         ],
         note: '先复习 models → listening → structures，再把原则应用到 video、pitch、reports、email 和 charts；最后闭卷完成情境题。',
       },
@@ -205,7 +211,10 @@ const copy = {
         rows: [
           ['Compare categories', 'Bar / column 对比类别大小，按问题组织顺序；必要时直接标注。', '过多 pie 切片难以比较；装饰性 3D 扭曲感知且增加负担。'],
           ['Change over time', 'Line 展示按时间顺序的变化；sparkline 可在很小空间概括趋势。', '不要把无序类别连线暗示连续趋势；需要精确读数时保留轴和必要标签。'],
-          ['Parts of a whole', 'Pie 只用于少量、互斥且组成同一整体的部分；也可比较条形呈现。', '课程图建议至多 3 项，是简化建议；阅读对 pie 更谨慎。20 个切片或不合计为整体的数据不适合。'],
+          ['Parts of a whole', 'Pie 用于少量、互斥且合计 100% 的部分；跨时间/多组构成比较可考虑 stacked bar。', '课程图与 ObservePoint 建议至多 3 项，SkillsYouNeed 建议不超过 5–6 项；共同原则是可读与同一整体，数字不是普遍定律。'],
+          ['Distribution vs categories', 'Histogram 展示连续数值的分组分布，区间相邻；bar 对比独立类别，条间留空。', '任务耗时分布用 histogram，部门任务量用 bar。Cartesian / scatter 的两个轴都是数值，可观察关系，但相关性不直接证明因果。'],
+          ['Three factors before presenting data', '①数据与目标相关；②图型准确表达信息；③关键结论对受众清楚。', '对应 Week08 Q3 与讲座：先说明要支持什么决定，再选比较/趋势等图型，最后考虑受众背景与阅读时间。逐项给理由，不只列美化技巧。'],
+          ['Report / internet page / PowerPoint', '报告需可独立理解、来源和正文分析；网页需适应快速浏览、小屏及文字解释；演示一图一要点，出现时立即解释。', '媒介适配为应用建议：图表不能依赖未随之提供的口头背景，网站不能只靠 hover 或颜色，演示细节可留支持材料。'],
           ['Relationship / exact values', 'Scatter 用于数值变量关系；表格方便查精确值；pictogram 必须有一致的图标刻度与图例。', '关系不证明因果；图标面积或大小随意变化会夸大差异。不要为了新奇混用图表。'],
           ['One message per visual', '标题说出主旨，视觉与当前解说同步，内容应让受众快速读懂。', '“Statistics”不是结论；观众同时读大段文字和听解说会分散注意力。'],
           ['Format / data-pixel ratio', '统一单位、千位分隔、适当小数；数值右对齐；删冗余背景、边框与重复图例。', '去装饰不等于删除解释数据所必需的单位、基线或来源。'],
@@ -215,6 +224,50 @@ const copy = {
           ['Data storytelling', '听受众 → 选择相关数据 → 找真实故事线 → 规划视觉 → 检查盲点 → 完善与分享。', '将数据、叙事和视觉结合以支持理解/决策；不是先编故事再挑数字。'],
         ],
         note: 'ObservePoint 十点：重视呈现、简化数字、提高 data-pixel ratio、避免 3D、谨慎用 pie、按目的选图、不无故混图、不用轴误导、不只靠颜色、有意且一致用色；dashboards 同样适用。源站缺失的公式/内嵌图未被补造。',
+      },
+      {
+        id: 'evidence', title: '沟通效果的证据：活动不等于结果',
+        intro: '沿用 Chapter03 official Q4、Q6 的证据分析方式：先区分活动与观测，再检查观测是否匹配沟通目标。',
+        headers: ['主张', '不足的依据', '直接验证与限制'],
+        rows: [
+          ['信息已到达', '我们按了 Send 或上传了视频。', '确认相关受众可访问、关键片段完整、版本正确；送达记录最多支持传输，不证明理解。'],
+          ['意思被理解', '对方说收到、点头、视频没有卡顿。', '请对方用自己的话解释问题、收益、限制和下一步，比较与原意的差异；内部排练不能代替外部受众测试。'],
+          ['政策可正确执行', '员工参加培训并记住规则名。', '用真实工作情境检验应采取的行动与责任，覆盖不同角色；关键词记忆不代表能应用。'],
+          ['同意并承担责任', '对方理解了，所以已经批准。', '明确询问决定、负责人和时间并取得确认；理解、赞同与承诺分别核对，不能从沉默推断。'],
+          ['传播实现目标', '视频精美、播放量高或团队都满意。', '若目标是试用讨论，观察合适受众是否提出相关问题并接受下一步；少量短期反馈不证明购买、长期行为或因果。'],
+        ],
+        note: '分问题型：定义 intended meaning 被理解 → 现有证据只说明什么 → 具体误解说明什么 → 两项建议，各自修复什么并产生何种证据。',
+      },
+      {
+        id: 'tutorials', title: '两周课堂讨论：逐题答题要点',
+        intro: '主题来自 Week07–08 Real-time Markdown 和 Applied Session PDF；以下答案骨架为本页整理。',
+        headers: ['课堂问题', '答案骨架', '必须解释的 why'],
+        rows: [
+          ['W07 Q1 · Why organisations care', '共享信息改善决策与问题解决；清楚职责减少误解、冲突和返工；倾听促进信任、参与和变更接受。', '把沟通方式连接到组织结果，不只列 productivity、trust 等词。'],
+          ['W07 Q2 · Is communication easy?', '不是单纯发送。Lasswell 检查发送者、内容、渠道、受众和效果；Shannon–Weaver 定位编码、传输、解码与噪声。', '术语不清与断线原因不同；先诊断，再澄清词义或修复渠道。不要一律责怪接收者。'],
+          ['W07 Q3 · Schramm and mentors', '关系、职位、组织规则、文化与共享经验影响解释；导师或研究利益相关者未必有团队背景。', '补上下文，定义 ready，邀请重述与核对预期；同一内容应适配关系和知识差异。'],
+          ['W07 Q4 · Compelling product video', '明确受众、痛点、使用者/购买者；用 empathy forecast 找语言，以 opener → problem → solution → CTA 展示受益。', '脚本与故事板使旁白、画面和节奏一致；功能应连接价值，精美制作本身不证明理解。'],
+          ['W07 PDF Q4 · Plan communication', '考虑目标、受众、信息、时机、渠道；按问题选择模型、结构、empathy forecast、脚本或故事板。', '不规划可导致错误渠道、背景不足、过载、误解或返工；每次不必用全部工具。'],
+          ['W08 Q1 · Formal vs informal', '政策/复杂指令用正式版本与记录；小问题或想法用非正式交流快速澄清，关键结论回到适当记录。', '比较权威、覆盖、速度、记录和反馈；两者互补，媒介名不决定正式程度。'],
+          ['W08 Q2 · Email to manager/mentor', '规划五问 → 主题、身份、背景、请求、期限、收件人、附件权限、语气、校对。', '忙碌读者需迅速知道要决定什么；缺少背景和明确请求不能靠反复催信弥补。'],
+          ['W08 Q3 · Three data factors', '①数据与目标相关；②图型传达所需信息；③主旨对受众清楚，适配报告/网页/演示。', '逐项说明数据为何有用、图型为何合适、受众为何能看懂；三因素来自讲座建议的组织，不是另一个命名模型。'],
+          ['W08 Q4 · Good vs poor pitch', '用于限时项目介绍、潜在赞助者/客户交流、社交或求职；好 pitch 说清受众、问题、收益、差异并引出后续。', '差 pitch 堆功能、术语、自夸或过早成交；评价对方是否理解价值并愿进一步探索。'],
+        ],
+        note: 'Week08 PDF p.3 要求用 AI 回答，再对照 pre-readings 检查完整性并汇报反思。检查模型是否混淆、案例是否相关、理由是否齐全、主张是否有材料依据；流畅不代表正确。',
+      },
+      {
+        id: 'workshop', title: 'Week08 工作坊：60 秒以内的产品 pitch',
+        intro: 'Applied Session PDF pp.6–8：向 sponsor、academic colleague 或 interested person 介绍产品，60 秒以内；讲座约 30 秒是一般示例。',
+        headers: ['步骤 / 任务', '产出与做法', '评价与限制'],
+        rows: [
+          ['1 · Individually generate words', '每人独立为 problem、specific target users、solution/benefits、differentiator 写关键词。', '先独立贡献再讨论；明确谁遇到问题，不写“所有人”。'],
+          ['2 · Agree as a team', '比较各关键词，选最适合受众的表达。', '说明理由；“5G”“AI”自身不是收益，差异要具体且有意义。'],
+          ['3 · Combine a draft', '产品名 → 具体用户与问题 → 一至两项收益 → 与替代方案的差异。', 'PDF 句型可结合阅读的合理 ask；目的为引发兴趣，不是讲全功能或立即成交。'],
+          ['4 · Share and seek feedback', '限时向全班展示，请听者复述问题、价值、差异并指出不清楚处。', '用反馈修改；只称赞流畅无法定位误解。'],
+          ['Five supplied product challenges', 'Single-Sock GPS Tracker；Solar-Powered Night Light；Bluetooth-Enabled Banana；5G-Connected Emotional Support Pet Rock；Mute Button for Real Life。', '课堂虚构产品要说明设定、必要性和限制；太阳能夜灯若假定靠电池储能，就明说假设，不能伪装成验证结果。'],
+          ['Practice template', '“[产品] 为 [具体用户] 的 [问题] 而设计；通过 [解决方式] 帮助 [一至两项收益]。与 [替代方案] 相比，[有依据的差异]。你愿意 [合理下一步] 吗？”', '实际产品只写真实能力；计时、删次要细节、自然表达，再测试理解。'],
+        ],
+        note: '自拟好坏对比：差：“我们的 5G 石头最先进，马上购买！”；改：“我们设想用无需喂养的桌面石头提供联网休息提示；它不替代宠物或心理治疗，提示功能仍需验证。你愿意看看概念演示，告诉我们是否有用吗？”仍需与普通提醒工具比较价值和差异。',
       },
       {
         id: 'traps', title: '高频辨析：看到相似词，先问评价对象',
@@ -234,7 +287,7 @@ const copy = {
       },
       {
         id: 'method', title: '批判题：用六步把理论变成可执行判断',
-        intro: '借鉴 official 的 critically evaluate 要求。以下是自拟作答方法与练习参考要点，不是官方评分细则。',
+        intro: '结合前三章 official 的情境与分问要求，以及 quiz/rubric.md 的问题识别 30%、概念应用 30%、专业判断 40%。六步是本页自拟作答方法，非 Chapter04 官方答案或专属评分表。',
         headers: ['步骤', '写什么', '避免什么'],
         rows: [
           ['1 · Position', '直接给有条件的建议，并承认时间、渠道或受众约束。', '只写“沟通很重要”。'],
@@ -247,8 +300,8 @@ const copy = {
         note: '简短英文骨架：I recommend … because … . Although … offers …, it does not address … . Using …, the team should … . Check understanding by …, agree …, and disclose … .',
       },
     ],
-    practiceTitles: ['Week07 · 12 道选择题', 'Week08 · 12 道选择题', '综合批判题 · 4 道示范'],
-    practiceIntro: '自编练习，参照 Chapter01–02 official 的定义、NOT、最佳行动与批判题风格；不是 Moodle 官方题，也不预测考试。先作答再展开答案。',
+    practiceTitles: ['Week07 · 18 道选择题（含多选）', 'Week08 · 18 道选择题（含多选）', '综合应用与批判题 · 6 道示范'],
+    practiceIntro: '自编练习，参照 Chapter01–03 official 的定义、NOT、最佳行动、多选及分问题型；不是 Moodle 官方题。多选逐项判断；综合题逐项回应要求，再展开答案核对理由与证据。',
     quiz07: [
       ['导师已收到演示文件，但把“ready”理解为可以上线，团队其实指开发完成。最直接的改进？\nA. 更换更快的网络\nB. 明确 ready 的验收条件并核对双方解释\nC. 原样重发\nD. 增加更多技术缩写', '答案：B。问题是语义与背景差异。用 Schramm 检查共享经验，用澄清和反馈形成共同意义；A 修复传输，C、D 不修复当前误解。'],
       ['哪一项不是 Lasswell 五问中的独立组成？\nA. Who\nB. In which channel\nC. With what effect\nD. When', '答案：D。Lasswell 是发送者、内容、渠道、受众、效果。When 属于 Week08 的规划提示；一般有用不等于属于该模型。'],
@@ -262,6 +315,12 @@ const copy = {
       ['哪项制作顺序符合客座讲座？\nA. Shoot → Workshop → Script\nB. Edit → Storyboard → Script\nC. Workshop → Script → Storyboard → Shoot → Edit\nD. Storyboard → Final video → Audience analysis', '答案：C。先统一受众与脚本，再把语言映射为画面并拍摄剪辑。故事板无需精美，但要能提前验证共同理解。'],
       ['面试回答“我的职责是协调交付”，属于 STAR 的哪一步？\nA. Task\nB. Action\nC. Result\nD. 不属于 STAR', '答案：A。Task 是责任/目标；Action 是实际采取的步骤；Result 是结果或学习。不能用责任陈述替代行动证据。'],
       ['队友发现你总在别人发言时打断，但你自己没意识到。减少这个 Johari 区域应？\nA. 要求别人披露私人经历\nB. 隐藏更多信息\nC. 只做自我宣传\nD. 邀请具体反馈并观察自己的行为', '答案：D。这是 blind spot：别人知道、自己不知道。反馈可帮助缩小盲区；适当自我披露对应 facade，不是同一个方向。'],
+      ['多选 · 哪些行动有助于与缺少项目背景的导师建立共同意义？（select all that apply）\nA. 解释术语并用熟悉任务举例\nB. 邀请导师用自己的话复述下一步\nC. 假定团队与导师的知识完全相同\nD. 保持语气不变但增添缩写\nE. 核对角色、目标与预期结果', '答案：A、B、E。A 补共享背景并减少语义噪声，B 暴露解释差异，E 对齐关系与目的。C 忽略 Schramm，D 增加编码负担；逐项判断，不因一句“专业表达”就选所有选项。'],
+      ['多选 · 哪些属于主动倾听的有效回应？\nA. 重述事实并询问理解是否准确\nB. 对方说到一半开始排练反驳\nC. 暂定反映感受并邀请纠正\nD. 邀请对方继续解释\nE. 立即转移到自己更熟悉的话题', '答案：A、C、D。分别对应 accuracy check、feelings check、door opener。B 是 rehearsing，E 是 subject changing。承认感受不等于同意所有主张。'],
+      ['多选 · 哪些是 Brownlee 的三种信息展开结构？\nA. Known → Unknown\nB. Problem → Solution → Benefit\nC. General → Specific\nD. Situation → Task → Action → Result\nE. Simple → Complex', '答案：A、C、E。B 是 PSB，D 是 STAR；它们同样有用，但不属于题干限定的 Brownlee 三结构。不要把“好框架”自动当作正确类别。'],
+      ['产品视频团队做了 empathy forecast，就宣称已证明目标客户会购买。最准确的评价？\nA. 预测图完整就足以证明\nB. 工作坊产生沟通假设，仍需目标受众验证\nC. 只要剪辑精美就无需验证\nD. 应忽略受众直接展示功能', '答案：B。Before/After/Bridge 帮助确定希望发生的变化和所需语言，不能把希望的 After 当测量结果。测试复述可检验理解，购买意愿或实际购买需另外证据。'],
+      ['故事板的主要价值是什么？\nA. 提前统一叙事、画面、旁白与转换并发现缺口\nB. 替代所有受众研究\nC. 保证视频销量\nD. 只有精美绘画才有效', '答案：A。低保真缩略图和注释就能帮助团队在拍摄前发现不一致，减少返工。故事板是规划工具，既不证明客户需要，也不保证转化。'],
+      ['多选 · 哪些观测直接支持“目标受众理解产品视频的主要意思”？\nA. 团队进行了两次内部排练\nB. 播放器没有报错\nC. 目标受众用自己的话说出解决的问题\nD. 目标受众正确说明限制与下一步\nE. 视频剪辑用了专业软件', '答案：C、D。它们提供与 intended meaning 对照的受众观测。A 是准备活动，B 是播放/传输证据，E 是工具选择；都不能单独证明理解。C、D 也不直接证明赞同或购买。'],
     ],
     quiz08: [
       ['哪项属于 Week08 规划提示、而不是 Lasswell 的原五问清单？\nA. Channel\nB. Sender\nC. When the message is needed\nD. Effect', '答案：C。Week08 用 Why / Who / What / When / How。尤其 Who 在规划提示中是受众，在 Lasswell 中是发送者。'],
@@ -276,32 +335,43 @@ const copy = {
       ['要呈现连续 12 个月的同一指标走势，优先考虑？\nA. 12 个饼图切片\nB. 时间轴明确的折线图\nC. 装饰性 3D 图标\nD. 随机排序柱形', '答案：B。任务是时间趋势。还需标注单位、尺度、数据范围与清楚标题；图型正确不代表结论自动正确。'],
       ['哪项最不符合视觉呈现原则？\nA. 同一类别用色一致\nB. 加文字标签\nC. 保留必要单位\nD. 只用红绿区分结果', '答案：D。单靠颜色不利于色觉差异或灰度打印。文字、符号、线型能提供额外识别线索。'],
       ['图表通过截短纵轴夸大很小差异，标题又宣称“巨大改善”。最直接的问题是？\nA. 呈现尺度与结论可能误导，需要还原语境并核对数据\nB. 没用更多动画\nC. 没隐藏数值\nD. 字体不够新颖', '答案：A。检查基线、范围、绝对值与变化量是否支持结论。说服力不能以牺牲数据完整性换取，精美也不能替代证据。'],
+      ['多选 · 哪些措施直接提高给经理/导师的邮件可理解性？\nA. 提供有意义的主题和身份\nB. 给出必要背景、明确请求与合理期限\nC. 每次都 CC 全部员工\nD. 检查附件版本与链接权限\nE. 用全大写表达紧急性', '答案：A、B、D。帮助识别目的、决定和支持材料。C 增加无关传播，E 可能造成语气噪声。紧急性用具体期限和原因表达，并考虑更及时的渠道。'],
+      ['多选 · 哪些内容应进入 executive summary？\nA. 报告目的\nB. 主要发现与结论\nC. 实际建议\nD. 仅说明后续各章将讨论什么\nE. 全部原始数据', '答案：A、B、C。摘要应可独立支持忙碌读者理解整份报告；D 只是展开预告，E 应在适当支持部分。简洁不能删除关键结论或把建议藏在正文。'],
+      ['多选 · 一张柱形图支持哪几项可靠呈现做法？\nA. 说明来源、单位、时间窗与指标定义\nB. 截短基线却不说明以放大改善\nC. 使用清楚的主旨标题和标签\nD. 仅靠红绿区别\nE. 核对结论是否由实际数值支持', '答案：A、C、E。提供语境、可读性与结论核对。B 可能误导长度比较，D 不满足不同色觉或灰度阅读。图形漂亮不等于证据充分。'],
+      ['要比较各部门的任务数量，并展示单次任务耗时分布，分别优先选什么？\nA. 两张 pie\nB. Bar 与 histogram\nC. Histogram 与 pie\nD. 两张无序 line', '答案：B。部门是独立类别，bar 便于大小比较；耗时是连续数值，histogram 显示分组分布。区间、单位与必要上下文仍须清楚。'],
+      ['本次 Week08 pitch 工作坊明确要求什么？\nA. 必须正好 30 秒并讲完所有功能\nB. 每人直接拍摄最终视频\nC. 60 秒以内；独立关键词 → 团队选择 → 草稿 → 全班反馈\nD. 只背 benefit，不解释目标用户', '答案：C。PDF pp.6–8 的时限为 60 秒以内，四项关键词是问题、目标用户、解决方案/收益、差异。讲座约 30 秒并非本次活动的硬性时限。'],
+      ['多选 · 哪些特点使 pitch 更有说服力？\nA. 针对具体受众的问题\nB. 可核验且相关的差异\nC. 不经证实地保证回报\nD. 简明收益与合理后续请求\nE. 更多技术流行词，无论受众是否理解', '答案：A、B、D。它们建立相关性、可信理由与行动路径。C、E 用保证或术语取代证据和理解；在虚构产品练习中也应说明设定。'],
     ],
     critical: [
       ['情境 1 · 导师反复误解团队进度。团队用术语很多的聊天消息汇报，导师说“收到”，但下次会议仍期待一个尚未验证的可用产品。期限是明天。批判性评价团队应如何改进。', '参考答案：建议今天用短会澄清，并发一页状态记录。聊天快速且留文字，但“收到”只能证明接收，不能证明理解或批准。用 Lasswell 明确本次目的为校准范围、状态与下一步；选了解项目的人说明。用 Shannon–Weaver 检查术语和表述噪声，用 Schramm 解释导师缺少团队共享背景。按已知目标→当前结果→未完成验证展开，定义 ready，展示一个具体任务与已知限制。请导师复述其预期并比较差异，然后确认负责人与明日前能完成的范围。短会占时间，但可优先处理最影响决定的误解；不承诺来不及完成的验证。'],
       ['情境 2 · 产品视频画面精美、列出很多功能，但用户看后说“不知道为什么需要它”。团队只有一天修改，想添加更多功能。请评价并提出计划。', '参考答案：不建议继续增加功能；现有视频可能吸引注意，却没有建立相关价值。先用已有研究明确受众、购买者与使用者、痛点和替代方案；快速做 Before / After / Bridge，承认这只是待验证假设。将脚本改为开场→具体困难→产品如何帮助→合理 CTA，保留有证据的差异与限制。先锁定简短脚本，用低保真故事板检查旁白与画面；重用可用素材并删去无关镜头，避免一天内重拍所有内容。请少量目标受众复述问题、收益与下一步，针对误解改稿。小范围试读只能提供初步理解证据，不能证明市场成功。'],
       ['情境 3 · 管理层用正式邮件发布变更后认为沟通已完成，员工却听到相互矛盾的传闻。有人建议所有信息以后只走非正式聊天。批判性评价。', '参考答案：两种极端都不足。正式渠道可提供权威版本、覆盖和记录，但可能缺少解释和反馈；非正式交流快速、便于澄清和表达顾虑，却可能漏人、变形或扩散传闻。保留一份清楚的正式政策及生效时间，安排小组问答和向上反馈。用主动倾听区分事实、感受和推测，使用开放问题收集困难，再确认职责与行动。将共性澄清更新到共同记录，指定负责人纠正矛盾版本。用实际执行情境核对理解，并跟进未触达员工；沟通改善不能保证所有人同意变更，也不能以沉默作为同意。'],
       ['情境 4 · 给管理者的报告首页只有背景；后面用 20 切片饼图和截短纵轴宣称产品“巨大成功”，同时没有来源。报告明早提交。请评价优先改动与验证。', '参考答案：先修正可能误导决策的证据，再整理首页。核对原始数据、指标定义、单位、时间窗和样本；若结论缺乏支持，应缩小或撤回“巨大成功”，披露不确定性。把同类比较改为可读的条形图，把时间趋势用明确尺度的折线图，标出来源及必要基线，不用只支持成功的时间段。减少装饰，使用结论型但不过度的标题及冗余标签。将首页改成可独立阅读的目的、实际发现、结论和可执行建议，正文保留分析依据。请同事以管理者视角复述关键判断；期限紧时优先正确性与核心结论，精美排版排在后面，未完成验证的部分明确标为暂定。'],
+      ['情境 5 · 多分问证据分析：团队宣称产品视频沟通有效，因为视频正常播放、全员排练过。三名目标用户看后说“界面漂亮”，却认为产品会代替医生诊断，实际上它只记录症状。\n①定义此处的有效沟通。\n②分析现有证据不足及该误解说明什么。\n③提出两项改进/评估，并解释各自产生的证据；至少一项直接处理诊断误解。', '参考答案：①此处要求目标用户理解产品记录症状的用途、能力边界与下一步；正常播放只是传输条件。②内部排练不代表目标受众理解，“漂亮”只评价外观；把记录理解成诊断揭示影响行为的核心语义误解，即使播放器可靠，沟通仍失败。三人是初步证据，不能据此推断所有人。③第一项：重写脚本和旁白，明确“记录症状供就诊讨论，不提供诊断”，用一个具体记录场景并同步显示边界；再让这些用户闭卷复述用途和限制，记录错误解释是否消失。第二项：邀请不同背景的新目标用户观看修订稿，用情境题检查需要医疗判断时会做什么及下一步在哪里；记录正确解释、行动选择和剩余疑问，继续修稿。两项分别处理明确误解与未参与改稿者的理解，不能保证临床安全或长期行为。'],
+      ['情境 6 · 限时 pitch：课堂分配 Solar-Powered Night Light，要求向潜在赞助者在 60 秒以内介绍。草稿只说“行业领先，晚上永不没电”，没有受众、储能设定或后续请求。\n评价草稿；推荐两项具体改进及各自的验证证据。', '参考答案：草稿在争取注意，却用无依据保证替代 problem、benefit 与 differentiator，且未解释白天能量如何在夜间使用。①先定义具体用户、夜间需求、替代方案和可说明的储能假设，再按 PSB 写一至两项收益，说明续航仍待验证；请同伴指出问题、价值与依赖条件是否清楚，核对每项能力是题目设定还是已验证事实。②独立关键词→团队选择→组合草稿，加入合理的概念演示/需求讨论请求并计时排练；向不熟悉草稿的听者展示，记录是否在 60 秒内、能否复述差异、限制与下一步，再删次要细节。顺畅和准时只证明交付表现；复述更直接测理解，接受讨论也不等于同意赞助。'],
     ],
     sourcesTitle: '内容依据与材料边界',
-    sourcesNote: '课程内容以本地讲座原生字幕、PDF、阅读和课程图交叉核对；字幕含识别错误，PSB 等名称按明确上下文统一。两段 M4A（Bypassing the brain’s hidden communication barriers、Remove friction from your business communication）尚无文字稿，未将其独有内容算作已核验。Week08 本地只有 own-time，未虚构 real-time 材料。未观看阅读内二级示例视频；ObservePoint 缺失图表/公式未补造。Johari 和两篇 optional 阅读明确标注为扩展。练习与示范为本页自编，非官方试题、答案或评分细则。',
+    sourcesNote: '课程内容以本地讲座原生字幕、PDF、阅读和课程图交叉核对；字幕含识别错误，PSB 等名称按明确上下文统一。两段 M4A（Bypassing the brain’s hidden communication barriers、Remove friction from your business communication）尚无文字稿，未将其独有内容算作已核验。两周 Real-time 讨论与 Week08 pitch 工作坊均已纳入；Week07 Moodle/PDF 问题差异单独保留。未观看阅读内二级示例视频；ObservePoint 缺失图表/公式未补造。Johari 和两篇 optional 阅读明确标注为扩展。练习与示范为本页自编，非官方试题、答案或评分细则。',
   },
   en: {
     subtitle: 'Weeks 07–08 · Shared meaning, credible evidence and practical action',
-    summary: 'A revision guide connecting both weeks’ lectures and readings with the Week07 workshop. Practise conceptual distinctions, scenario decisions and critical evaluation across communication models, listening, audience analysis, storytelling, organisational channels, reports, email and visuals.',
+    summary: 'Connect Week07–08 lectures, readings, tutorial discussions and the pitch workshop. Use the first three official quizzes to practise definitions, best actions, multiple selections and evidence analysis across models, listening, audiences, storytelling, organisational channels, reports, email and data presentation.',
     lead: 'Define the audience and intended effect, choose a channel and structure, check meaning through feedback, support persuasion with evidence, and agree the next action. Sent ≠ understood ≠ agreed ≠ committed.',
-    tags: ['Weeks 07–08', 'Bilingual revision', '24 MCQs + 4 critiques', 'Original practice · not official'],
+    tags: ['Weeks 07–08', 'Bilingual revision', '36 MCQs + 6 integrated questions', 'Original practice · not official'],
     sections: [
       {
         id: 'map', title: 'Revision map: learning from the official question styles',
-        intro: 'Only Chapter01 and Chapter02 official questions are available locally. There is no Chapter04 official quiz here. This is a revision structure, not an exam prediction.',
+        intro: 'Use the local Chapter01–03 official quizzes to calibrate answer methods and Week07–08 materials to determine content. No Chapter04 official quiz is available here; the practice is original.',
         headers: ['Question basis', 'What to practise here', 'Answer rule'],
         rows: [
           ['Chapter01 Q1–2 · best / most directly', 'Time-limited presentations, unanswered email, misunderstood policies and unconvincing product videos.', 'Identify the stated failure mechanism. Choose the action that directly addresses it rather than something merely useful in general.'],
           ['Chapter02 Q1, Q3 · definitions and attributes', 'Models, formal/informal channels, listening responses, STAR and PSB.', 'Identify the defining dimension. Related terms are not interchangeable. Test every item before selecting all of the above.'],
           ['Chapter02 Q2, Q4, Q5 · NOT / not a feature', 'Model components, process steps, listening barriers versus responses, reports versus introductions.', 'Mark the negation first. A useful action can still be outside the particular model, stage or category.'],
+          ['Chapter03 Q2, Q4, Q5 · multiple selections and evidence', 'Actions supporting communication; observations of comprehension; preparation activities versus tools.', 'Evaluate each option independently. Distinguish process, medium and outcome evidence; select only what answers the stated evaluation target.'],
+          ['Chapter03 Q3, Q6 · contextual choices and explicit subparts', 'Does sending an email, playing a video without crashes or rehearsing internally establish understanding?', 'Match strategies to audience and risk. Answer definition, evidence limits, meaning of the specific incident, and two recommendations with the evidence each provides.'],
           ['Chapter01 Q4, Chapter02 Q6 · critically evaluate', 'Mentor misunderstandings, video revisions, organisational change and misleading charts.', 'Take a position, explain mechanisms, compare options under constraints, propose action and verification. Listing terminology is not evaluation.'],
           ['Week07 real-time · four discussion themes', 'Organisational value; Lasswell/Shannon–Weaver; Schramm and mentors; product videos or communication planning.', 'Moodle Q4 asks about compelling product videos; PDF Q4 asks about planning and tools. Both are covered. PDF Q3 also includes research stakeholders.'],
+          ['Week08 real-time · four discussions and workshop', 'Formal/informal channels; manager/mentor email; three data-presentation factors; good versus poor pitches; a product pitch in 60 seconds or less.', 'Explain why for each recommendation. Individually write keywords, agree wording as a team, combine a draft, then present to the class for feedback.'],
         ],
         note: 'Revise models → listening → structures, then apply them to video, pitches, reports, email and charts. Finish with the closed-book scenario questions.',
       },
@@ -466,7 +536,10 @@ const copy = {
         rows: [
           ['Compare categories', 'Use bars/columns, ordering to suit the question and labelling directly where useful.', 'Many pie slices impede comparison; decorative 3D distorts perception and adds work.'],
           ['Change over time', 'Use a line over ordered time; a sparkline can summarise a trend in limited space.', 'Do not connect unordered categories to imply continuity. Keep necessary axes and labels when precise reading matters.'],
-          ['Parts of a whole', 'Use pie only for a few mutually exclusive parts of one whole; consider a bar alternative.', 'The course visual suggests at most three items as a simplification; the reading is more sceptical of pies. Twenty slices or unrelated totals do not fit.'],
+          ['Parts of a whole', 'Use pies for a few mutually exclusive parts totalling 100%; consider stacked bars for composition across periods or groups.', 'The course visual and ObservePoint suggest at most three items; SkillsYouNeed suggests no more than five or six. Readability and a common whole are the shared principle, not a universal numerical limit.'],
+          ['Distribution vs categories', 'Histograms show grouped continuous numerical distributions with adjacent intervals; bars compare independent categories with gaps.', 'Use a histogram for task-duration distribution and bars for task counts by department. Cartesian/scatter graphs have numerical axes and can show relationships without establishing causation.'],
+          ['Three factors before presenting data', 'Relevance to the objective; representation that conveys the message; a key insight clear to the audience.', 'Matches Week08 Q3 and the lecture: identify the decision, choose a comparison/trend representation, then consider audience knowledge and viewing time. Explain each choice, rather than listing decoration tips.'],
+          ['Report / internet page / PowerPoint', 'Reports need standalone context, sources and analysis; web pages need readable small-screen content and text explanations; live slides need one point explained when shown.', 'These are applied recommendations: charts need context without a speaker, web meaning cannot depend solely on hover or colour, and presentation detail can go in supporting documents.'],
           ['Relationship / exact values', 'Scatter shows numerical relationships; tables support precise lookup; pictograms need consistent icon scales and keys.', 'Association does not establish causation. Arbitrary icon area can exaggerate differences. Do not mix chart types merely for novelty.'],
           ['One message per visual', 'Use a takeaway title, synchronise the image with narration and make the point quickly legible.', '“Statistics” is not a conclusion. Dense reading competes with listening.'],
           ['Format / data-pixel ratio', 'Use consistent units, separators and meaningful precision; right-align numbers; remove redundant borders, backgrounds and legends.', 'Removing decoration does not justify removing units, baselines or sources needed to interpret data.'],
@@ -476,6 +549,50 @@ const copy = {
           ['Data storytelling', 'Listen to the audience → identify relevant data → find a truthful storyline → plan visuals → check blind spots → polish and share.', 'Combine data, narrative and visuals to support understanding and decisions; do not invent a story and select only convenient numbers.'],
         ],
         note: 'ObservePoint’s ten tips: presentation matters; simplify numbers; maximise data-pixel ratio; avoid 3D; be cautious with pies; choose by purpose; avoid unjustified chart mixing; do not mislead with axes; do not rely only on colour; use colour consistently and intentionally. Dashboards follow the same principles. Missing source formulas/embedded charts were not reconstructed.',
+      },
+      {
+        id: 'evidence', title: 'Communication evidence: activities versus outcomes',
+        intro: 'Apply the evidence analysis in Chapter03 official Q4 and Q6: separate activities from observations, then match observations to the communication objective.',
+        headers: ['Claim', 'Insufficient basis', 'Direct check and limits'],
+        rows: [
+          ['The message arrived', 'We pressed Send or uploaded the video.', 'Confirm audience access, complete key segments and the correct version. Delivery records support transmission at most, not understanding.'],
+          ['Meaning was understood', 'The listener nodded, replied received, or watched without buffering.', 'Ask them to explain the problem, benefit, limits and next step in their own words; compare with the intended meaning. Internal rehearsal cannot replace target-audience review.'],
+          ['The policy can be applied', 'Staff attended training and remembered rule names.', 'Use realistic work scenarios to check actions and responsibility across roles. Keyword recall does not establish application.'],
+          ['Agreement and ownership', 'They understood, so they approved.', 'Explicitly confirm the decision, owner and timing. Check understanding, agreement and commitment separately; do not infer them from silence.'],
+          ['The objective was achieved', 'The video looks polished, gets views or pleases the team.', 'For a trial-discussion objective, observe relevant questions and acceptance of a suitable next step. Small, short-term feedback does not prove purchases, lasting behaviour or causation.'],
+        ],
+        note: 'For explicit subparts: define intended meaning being understood; explain what the current evidence establishes; interpret the specific misunderstanding; propose two actions with the problem each repairs and evidence each provides.',
+      },
+      {
+        id: 'tutorials', title: 'Both weeks’ tutorial questions: answer outlines',
+        intro: 'Themes come from the Week07–08 Real-time Markdown and Applied Session PDFs. These answer outlines are original revision notes.',
+        headers: ['Discussion question', 'Answer outline', 'Explain why'],
+        rows: [
+          ['W07 Q1 · Why organisations care', 'Shared information supports decisions and problem solving; role clarity reduces confusion, conflict and rework; listening supports trust, engagement and change acceptance.', 'Connect communication mechanisms to organisational outcomes, rather than listing productivity and trust.'],
+          ['W07 Q2 · Is communication easy?', 'Sending alone is insufficient. Lasswell checks sender, message, channel, audience and effect; Shannon–Weaver locates encoding, transmission, decoding and noise.', 'Ambiguous terminology and connection loss need different repairs. Diagnose before clarifying meaning or restoring a channel; do not automatically blame the receiver.'],
+          ['W07 Q3 · Schramm and mentors', 'Relationships, roles, organisational rules, culture and shared experience shape interpretation. Mentors or research stakeholders may lack team context.', 'Supply context, define ready and invite restatement of expectations; adapt to differences in knowledge and relationships.'],
+          ['W07 Q4 · Compelling product video', 'Identify audience, pain and user versus buyer. Use empathy forecasting for language and opener → problem → solution → CTA to show value.', 'Scripts and storyboards align narration, visuals and pacing. Features must connect to benefits; polish alone does not establish comprehension.'],
+          ['W07 PDF Q4 · Plan communication', 'Consider objective, audience, message, timing and channel. Choose models, structures, forecasting, scripts or storyboards to suit the problem.', 'Without planning, wrong channels, missing context, overload, misunderstanding or rework can follow. Every tool is not required every time.'],
+          ['W08 Q1 · Formal vs informal', 'Use authoritative records for policy or complex instructions, and informal exchange for quick clarification and ideas; record important conclusions appropriately.', 'Compare authority, coverage, speed, records and feedback. Channels complement each other; software names do not determine formality.'],
+          ['W08 Q2 · Email to manager/mentor', 'Planning prompts → subject, identity, context, request, timing, recipients, attachment access, tone and proofreading.', 'A busy reader must quickly see the decision requested. Repeated reminders cannot repair missing context or an unclear ask.'],
+          ['W08 Q3 · Three data factors', 'Relevance to the objective; representation conveying the message; clarity to the audience, adapted to report, website or presentation.', 'Explain usefulness, chart suitability and audience comprehension separately. This groups lecture guidance rather than inventing a named three-factor model.'],
+          ['W08 Q4 · Good vs poor pitch', 'Use for brief project introductions, potential sponsors/customers, networking or employment. A good pitch clarifies audience, problem, benefit and difference, then invites exploration.', 'A poor pitch piles up features, jargon, unsupported praise or pressure to buy. Assess understood value and willingness to explore further.'],
+        ],
+        note: 'Week08 PDF p.3 asks teams to use AI, compare completeness against pre-readings and present reflections. Check model distinctions, relevant examples, reasons and source support; fluency does not establish correctness.',
+      },
+      {
+        id: 'workshop', title: 'Week08 workshop: a product pitch in 60 seconds or less',
+        intro: 'Applied Session PDF pp.6–8: explain a product to a sponsor, academic colleague or interested person in 60 seconds or less. The lecture’s roughly 30 seconds is a general example.',
+        headers: ['Step / task', 'Output and approach', 'Evaluation and limits'],
+        rows: [
+          ['1 · Individually generate words', 'Each person writes keywords for problem, specific target users, solution/benefits and differentiator.', 'Contribute independently before discussion. Identify who has the problem rather than saying everyone.'],
+          ['2 · Agree as a team', 'Compare keywords and select wording suited to the audience.', 'Explain choices. 5G or AI is not itself a benefit; differentiation must be concrete and relevant.'],
+          ['3 · Combine a draft', 'Product name → specific user/problem → one or two benefits → difference from alternatives.', 'Combine the PDF sentence scaffold with a suitable ask from the reading. Spark interest rather than listing every feature or closing immediately.'],
+          ['4 · Share and seek feedback', 'Present within the time limit; ask listeners to restate the problem, value and difference and identify unclear points.', 'Revise using feedback; praise for fluency alone does not locate misunderstandings.'],
+          ['Five supplied product challenges', 'Single-Sock GPS Tracker; Solar-Powered Night Light; Bluetooth-Enabled Banana; 5G-Connected Emotional Support Pet Rock; Mute Button for Real Life.', 'These are fictional classroom exercises. State assumptions, necessity and limits. If a solar night light depends on battery storage, label that assumption rather than claiming verified capability.'],
+          ['Practice template', '“[Product] is designed for [specific user] facing [problem]. Through [solution], it offers [one or two benefits]. Compared with [alternative], [supported difference]. Would you [proportionate next step]?”', 'For real products use actual capabilities. Time the delivery, remove secondary detail, speak naturally and test understanding.'],
+        ],
+        note: 'Original contrast: poor—“Our 5G rock is the most advanced; buy now!” Improved—“We propose a low-maintenance desk rock with connected break reminders. It replaces neither pets nor therapy, and the reminder feature needs validation. Would you watch a concept demo and tell us whether it is useful?” Value and difference still need comparison with ordinary reminder tools.',
       },
       {
         id: 'traps', title: 'Key distinctions: identify what is being evaluated',
@@ -495,7 +612,7 @@ const copy = {
       },
       {
         id: 'method', title: 'Critical evaluation: six steps to an actionable judgement',
-        intro: 'Adapted to the official quizzes’ evaluation demand. This method and the practice answer points are original revision aids, not an official marking rubric.',
+        intro: 'Use the first three official quizzes’ scenarios/subparts and quiz/rubric.md: issue identification 30%, concept application 30%, professional judgement 40%. This six-step method is original, not an official Chapter04 solution or chapter-specific marking scheme.',
         headers: ['Step', 'Write', 'Avoid'],
         rows: [
           ['1 · Position', 'A qualified recommendation recognising time, channel and audience constraints.', 'Only saying communication is important.'],
@@ -508,8 +625,8 @@ const copy = {
         note: 'Answer skeleton: I recommend … because … . Although … offers …, it does not address … . Using …, the team should … . Check understanding by …, agree …, and disclose … .',
       },
     ],
-    practiceTitles: ['Week07 · 12 multiple-choice questions', 'Week08 · 12 multiple-choice questions', 'Integrated critical evaluation · 4 worked answers'],
-    practiceIntro: 'Original practice modelled on Chapter01–02 official definitions, NOT questions, best-action scenarios and critiques. These are not Moodle official questions or exam predictions. Answer before expanding.',
+    practiceTitles: ['Week07 · 18 questions including multiple selections', 'Week08 · 18 questions including multiple selections', 'Integrated application and evaluation · 6 worked answers'],
+    practiceIntro: 'Original practice modelled on Chapter01–03 official definitions, NOT questions, best actions, multiple selections and explicit subparts. These are not Moodle official questions. Evaluate each selection independently and answer every required subpart before revealing the rationale and evidence.',
     quiz07: [
       ['A mentor received the slides but interpreted “ready” as deployable; the team meant development complete. Best action?\nA. Buy faster internet\nB. Define readiness criteria and check both interpretations\nC. Resend unchanged\nD. Add more acronyms', 'Answer: B. This is a meaning/context problem. Use Schramm to examine shared experience, then clarify and confirm. A addresses transmission; C and D do not repair this misunderstanding.'],
       ['Which is NOT a separate component of Lasswell’s five questions?\nA. Who\nB. In which channel\nC. With what effect\nD. When', 'Answer: D. Lasswell covers sender, content, channel, audience and effect. When is in Week08’s planning prompts; being useful does not make it part of this model.'],
@@ -523,6 +640,12 @@ const copy = {
       ['Which workflow matches the guest lecture?\nA. Shoot → Workshop → Script\nB. Edit → Storyboard → Script\nC. Workshop → Script → Storyboard → Shoot → Edit\nD. Storyboard → Final video → Audience analysis', 'Answer: C. Agree audience and language, map the script to visuals, then film and edit. A storyboard need not be beautiful; it must expose the intended sequence early.'],
       ['“My responsibility was to coordinate delivery” belongs to which STAR step?\nA. Task\nB. Action\nC. Result\nD. None', 'Answer: A. Task states responsibility or objective. Action states what you did; Result states outcomes or learning. Responsibility alone is not behavioural evidence.'],
       ['Teammates notice that you interrupt, but you are unaware. How should you reduce this Johari area?\nA. Demand private disclosures\nB. Hide more information\nC. Promote yourself\nD. Invite specific feedback and observe your behaviour', 'Answer: D. This is the blind spot: known to others, unknown to self. Feedback helps; appropriate self-disclosure addresses the facade, a different direction.'],
+      ['Select all that apply · Which actions help establish shared meaning with a mentor unfamiliar with the project?\nA. Explain terms using a familiar task\nB. Invite restatement of the next step\nC. Assume identical knowledge\nD. Add more acronyms without changing the tone\nE. Check roles, objectives and expected results', 'Answer: A, B, E. A supplies shared context and reduces semantic noise, B exposes interpretation differences, and E aligns relationships and purpose. C ignores Schramm; D increases encoding burden. Assess each option independently.'],
+      ['Select all that apply · Which are effective listening responses?\nA. Restate facts and check accuracy\nB. Rehearse a rebuttal while the speaker continues\nC. Tentatively reflect feelings and invite correction\nD. Invite further explanation\nE. Change to a topic you prefer', 'Answer: A, C, D: accuracy check, feelings check and door opener. B is rehearsing; E is subject changing. Recognising a feeling does not imply accepting every claim.'],
+      ['Select all that apply · Which are Brownlee’s three information structures?\nA. Known → Unknown\nB. Problem → Solution → Benefit\nC. General → Specific\nD. Situation → Task → Action → Result\nE. Simple → Complex', 'Answer: A, C, E. B is PSB and D is STAR. Both are useful frameworks, but outside the category named in the question. Do not select a framework simply because it is useful.'],
+      ['A team completes an empathy forecast and claims it has proved customers will buy. Best evaluation?\nA. A completed forecast proves demand\nB. The workshop generates communication assumptions needing target-audience validation\nC. Polished editing removes the need for validation\nD. Ignore the audience and show features', 'Answer: B. Before/After/Bridge identifies intended changes and messaging; a desired After state is not a measured result. Restatement tests understanding, while purchase intentions or actual buying need separate evidence.'],
+      ['What is the main value of storyboarding?\nA. Align narrative, visuals, narration and transitions and expose gaps early\nB. Replace all audience research\nC. Guarantee sales\nD. Require polished artwork', 'Answer: A. Low-fidelity thumbnails and notes can reveal inconsistencies before filming and reduce rework. A storyboard is a planning tool, not proof of need or a guarantee of conversion.'],
+      ['Select all that apply · Which observations directly support target-audience understanding of a product video?\nA. Two internal team rehearsals\nB. No player errors\nC. Target viewers explain the problem in their own words\nD. Target viewers correctly describe limits and the next step\nE. Professional editing software', 'Answer: C, D. These observations can be compared with intended meaning. A is preparation, B is playback/transmission evidence and E is tool choice. C and D do not directly establish agreement or purchasing.'],
     ],
     quiz08: [
       ['Which belongs to Week08’s planning prompts rather than Lasswell’s original five-question list?\nA. Channel\nB. Sender\nC. When the message is needed\nD. Effect', 'Answer: C. Week08 uses Why/Who/What/When/How. In particular, Who means audience in these prompts and sender in Lasswell.'],
@@ -537,15 +660,23 @@ const copy = {
       ['For one metric’s trend across twelve consecutive months, first consider?\nA. Twelve pie slices\nB. A line chart with a clear time axis\nC. Decorative 3D icons\nD. Randomly ordered columns', 'Answer: B. The task is a time trend. Still specify units, scales, scope and a clear title; correct chart choice does not automatically validate a conclusion.'],
       ['Which is LEAST consistent with visual communication principles?\nA. Consistent colour for a category\nB. Text labels\nC. Necessary units\nD. Red/green as the only distinction', 'Answer: D. Colour-only encoding fails for some viewers and grayscale printing. Labels, symbols and line styles provide additional identification.'],
       ['A truncated axis magnifies a small difference under “Huge improvement”. The most direct concern is?\nA. The scale and conclusion may mislead; restore context and check data\nB. Too little animation\nC. Visible numbers\nD. Unfashionable typography', 'Answer: A. Check baseline, range, absolute values and change against the claim. Persuasion must not sacrifice data integrity, and polish is not evidence.'],
+      ['Select all that apply · Which actions directly improve a manager/mentor email?\nA. Meaningful subject and identity\nB. Necessary context, clear request and reasonable timing\nC. Always CC every employee\nD. Check attachment versions and link access\nE. Use all capitals to convey urgency', 'Answer: A, B, D. They clarify purpose, decisions and supporting material. C adds irrelevant circulation; E can introduce tone-related noise. State urgency through reasons and timing, and consider a faster channel.'],
+      ['Select all that apply · What belongs in an executive summary?\nA. Report purpose\nB. Main findings and conclusions\nC. Actual recommendations\nD. Only a preview of forthcoming chapters\nE. Every raw data point', 'Answer: A, B, C. A standalone summary gives a busy reader the report’s actual message. D is a structural preview; E belongs in supporting material. Concision must not remove the conclusion or hide recommendations.'],
+      ['Select all that apply · Which practices support trustworthy bar-chart presentation?\nA. Specify source, units, period and metric definitions\nB. Silently truncate the baseline to exaggerate improvement\nC. Clear takeaway title and labels\nD. Red/green alone\nE. Check whether values support the conclusion', 'Answer: A, C, E. They support context, readability and evidential checks. B may mislead length comparisons; D fails some viewers and grayscale output. Attractive design is not sufficient evidence.'],
+      ['Which charts suit task counts by department and the distribution of individual task durations, respectively?\nA. Two pies\nB. Bar and histogram\nC. Histogram and pie\nD. Two unordered lines', 'Answer: B. Departments are independent categories; bars support comparison. Duration is continuous numerical data; a histogram shows grouped distribution. Define intervals, units and necessary context.'],
+      ['What does the Week08 pitch workshop specifically require?\nA. Exactly 30 seconds covering every feature\nB. Film a final video individually\nC. At most 60 seconds; individual keywords → team selection → draft → class feedback\nD. Benefits with no target users', 'Answer: C. PDF pp.6–8 specifies 60 seconds or less and keywords for problem, target users, solution/benefits and differentiator. The lecture’s roughly 30 seconds is not this activity’s fixed limit.'],
+      ['Select all that apply · What makes a pitch more persuasive?\nA. A specific audience’s problem\nB. A relevant, checkable differentiator\nC. Unverified guaranteed returns\nD. Concise benefits and a proportionate follow-up ask\nE. More buzzwords regardless of understanding', 'Answer: A, B, D. They establish relevance, credible reasons and a path to action. C and E substitute guarantees or jargon for evidence and understanding. Label assumptions in fictional product exercises too.'],
     ],
     critical: [
       ['Scenario 1 · A team reports through jargon-heavy chat. Its mentor replies “received” but repeatedly expects a usable product that has not been validated. The deadline is tomorrow. Critically evaluate how the team should respond.', 'Worked answer: Hold a short clarification meeting today and provide a one-page status record. Chat is fast and leaves text, but receipt is not understanding or approval. Use Lasswell to define the objective as alignment on scope, status and next action, with a knowledgeable speaker. Use Shannon–Weaver to locate ambiguous encoding and Schramm to explain missing shared context. Move from the known goal to current results and outstanding validation; define readiness, show one task and state limits. Ask the mentor to restate expectations and resolve differences, then confirm owners and what is feasible by tomorrow. A meeting costs time, so prioritise misunderstandings that affect the decision and avoid promising impossible validation.'],
       ['Scenario 2 · A polished product video lists many features, but viewers do not know why they need it. With one day left, the team wants more features. Critically evaluate and propose a plan.', 'Worked answer: Do not simply add features. The video may attract attention without establishing relevance. Use existing research to identify audience, buyer versus user, pain and current alternatives; run a quick Before/After/Bridge exercise while treating its output as assumptions. Rewrite a short script around opener, concrete problem, solution and a proportionate CTA, retaining only supported differentiation and limits. Check it with a low-fidelity storyboard, reuse suitable footage and cut irrelevant scenes rather than reshooting everything. Ask a small number of target viewers to explain the problem, benefit and next step, then repair misunderstandings. This gives preliminary evidence of comprehension, not proof of market success.'],
       ['Scenario 3 · Management assumes a formal change email completes communication, but employees hear conflicting rumours. Someone proposes using only informal chat. Critically evaluate.', 'Worked answer: Neither extreme is sufficient. Formal channels provide an authoritative version, coverage and records but may lack explanation and feedback. Informal exchange is fast and permits concerns, yet can omit people, distort messages and spread rumours. Retain one clear policy and effective date; add small-group Q&A and upward feedback. Listen for facts, feelings and assumptions, use open questions to explore difficulty, then confirm responsibilities and action. Update shared explanations and name an owner for contradictory versions. Check understanding through realistic work scenarios and follow up with unreached staff. Better communication does not guarantee agreement with the change, and silence is not consent.'],
       ['Scenario 4 · A management report opens with background only. Later, a twenty-slice pie and truncated axis claim “huge success” without sources. It is due tomorrow morning. Evaluate priorities and validation.', 'Worked answer: Repair evidence that could mislead decisions before polishing the first page. Check original data, metric definitions, units, time window and sample. Narrow or withdraw unsupported success claims and disclose uncertainty. Use readable bars for category comparisons and a clearly scaled line for trends, with sources and necessary baselines; do not select only favourable periods. Remove decoration and use takeaway titles that do not overclaim, with redundant labels. Replace the opening with a standalone purpose, actual findings, conclusions and actionable recommendations, retaining analysis in the body. Ask a colleague to restate the decision as a manager would. Under the deadline, prioritise correctness and the main conclusion over visual polish; mark unverified parts provisional.'],
+      ['Scenario 5 · Explicit evidence subparts: A team calls its video effective because it plays correctly and everyone rehearsed. Three target viewers call the interface attractive but think the product replaces medical diagnosis; it only records symptoms.\n1. Define effective communication here.\n2. Analyse the existing evidence and what the misunderstanding shows.\n3. Recommend two improvements/evaluations and the evidence each provides; at least one must directly address the diagnosis misconception.', 'Worked answer: 1. Target viewers need to understand symptom recording, capability limits and the next step. Playback is only a transmission condition. 2. Internal rehearsal does not establish target-audience understanding, and attractive comments evaluate appearance. Mistaking recording for diagnosis reveals a central semantic failure affecting behaviour even with reliable playback. Three viewers provide preliminary evidence, not a population estimate. 3. First rewrite narration and visuals to state “records symptoms for consultation; does not diagnose”, show a concrete recording task and synchronise the limitation. Ask those viewers to restate purpose and limits without prompts, recording whether the misconception persists. Second test the revised video with new target viewers from different backgrounds; use a scenario requiring medical judgement to check their proposed action and next step. Record correct interpretations, action choices and remaining questions, then revise. These checks address the known error and fresh-viewer comprehension; they do not guarantee clinical safety or lasting behaviour.'],
+      ['Scenario 6 · A classroom Solar-Powered Night Light pitch must introduce the product to a potential sponsor in 60 seconds or less. The draft says “industry-leading, never runs out at night”, without audience, storage assumptions or an ask.\nEvaluate it; recommend two specific improvements and verification evidence for each.', 'Worked answer: The draft seeks attention but substitutes unsupported guarantees for problem, benefit and differentiation, and leaves daytime-to-night energy storage unexplained. First define a specific user, night-time need, alternatives and explicit storage assumptions. Use PSB with one or two benefits and state that endurance needs validation. Ask a peer to identify the problem, value and dependencies, and check each capability as an exercise assumption or verified fact. Second follow individual keywords → team agreement → draft, add a proportionate concept-demo or needs-discussion ask, and time delivery. Present to listeners unfamiliar with the draft; record whether it stays within 60 seconds and whether they can restate the difference, limits and next step, then cut secondary detail. Fluency and timing establish delivery performance; restatement is more direct comprehension evidence, and accepting a discussion is not sponsorship approval.'],
     ],
     sourcesTitle: 'Content basis and material limits',
-    sourcesNote: 'Local native captions, PDFs, readings and course visuals were cross-checked; captions contain recognition errors, so names such as PSB are normalised using clear context. Two M4A files (Bypassing the brain’s hidden communication barriers; Remove friction from your business communication) have no transcript and their unique content is not counted as verified. Only Week08 own-time material is available locally; no real-time material is invented. Linked secondary example videos were not watched. Missing ObservePoint charts/formulas were not reconstructed. Johari and the two optional readings are labelled extensions. Questions and worked answers are original, not official exam questions, answers or marking criteria.',
+    sourcesNote: 'Local native captions, PDFs, readings and course visuals were cross-checked; captions contain recognition errors, so names such as PSB are normalised using clear context. Two M4A files (Bypassing the brain’s hidden communication barriers; Remove friction from your business communication) have no transcript and their unique content is not counted as verified. Both weeks’ Real-time discussions and the Week08 pitch workshop are included; Week07 Moodle/PDF question differences remain explicit. Linked secondary example videos were not watched. Missing ObservePoint charts/formulas were not reconstructed. Johari and the two optional readings are labelled extensions. Questions and worked answers are original, not official exam questions, answers or marking criteria.',
   },
 } as const
 
@@ -563,7 +694,7 @@ export default function Chapter04({ locale }: { locale: Locale }) {
   ]
 
   return (
-    <ChapterLayout chapterId="04" locale={locale} eyebrow="Chapter 04 · Weeks 07–08" title="Complex Communication" subtitle={c.subtitle} summary={c.summary} updated="16 Sep 2026" tags={[...c.tags]} toc={toc}>
+    <ChapterLayout chapterId="04" locale={locale} eyebrow="Chapter 04 · Weeks 07–08" title="Complex Communication" subtitle={c.subtitle} summary={c.summary} updated="07 Oct 2026" tags={[...c.tags]} toc={toc}>
       {c.sections.map((section, index) => (
         <ContentSection key={section.id} id={section.id} index={String(index + 1).padStart(2, '0')} title={section.title} intro={section.intro}>
           {index === 0 && <div className="mb-5"><LeadCard label={locale === 'zh' ? '判断主线' : 'Decision spine'}>{c.lead}</LeadCard></div>}
