@@ -12,7 +12,8 @@ const Week06 = lazy(() => import('@/weeks/week-06'))
 const Week07 = lazy(() => import('@/weeks/week-07'))
 const Week08 = lazy(() => import('@/weeks/week-08'))
 const Week09 = lazy(() => import('@/weeks/week-09'))
-const weekComponents = { '01': Week01, '02': Week02, '03': Week03, '04': Week04, '05': Week05, '06': Week06, '07': Week07, '08': Week08, '09': Week09 }
+const Week10 = lazy(() => import('@/weeks/week-10'))
+const weekComponents = { '01': Week01, '02': Week02, '03': Week03, '04': Week04, '05': Week05, '06': Week06, '07': Week07, '08': Week08, '09': Week09, '10': Week10 }
 
 interface WeekContentProps {
   week: WeekDefinition

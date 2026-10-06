@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'IP, Open Data & RCA' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/09')
+    expect(await screen.findByRole('heading', { name: 'Professional Responsibility' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/10')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {
@@ -339,7 +339,7 @@ describe('study hub routes', () => {
     }
   })
 
-  it('selects Week 09, switches language and returns from its reserved exam page', async () => {
+  it('selects Week 09, switches language and opens its chapter’s latest summary', async () => {
     const user = userEvent.setup()
     const router = await renderRoute('/week/08?lang=en')
     await user.click(await screen.findByRole('combobox', { name: 'Select week' }))
@@ -353,8 +353,8 @@ describe('study hub routes', () => {
     expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/05')
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
-    expect(await screen.findByRole('heading', { name: 'IP, Open Data & RCA' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/09')
+    expect(await screen.findByRole('heading', { name: 'Professional Responsibility' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/10')
     expect(router.state.location.search.lang).toBe('zh')
   })
 
