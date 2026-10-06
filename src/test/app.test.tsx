@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'Business Communication' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/08')
+    expect(await screen.findByRole('heading', { name: 'IP, Open Data & RCA' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/09')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {
@@ -316,6 +316,46 @@ describe('study hub routes', () => {
     for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
       expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
     }
+  })
+
+  it.each(['zh', 'en'] as const)('renders Week 09 with sources, anchors and working answers in %s', async locale => {
+    const user = userEvent.setup()
+    await renderRoute(`/week/09?lang=${locale}`)
+    expect(await screen.findByRole('heading', { name: 'IP, Open Data & RCA' })).toBeInTheDocument()
+    for (const id of ['ip', 'copyright', 'fair-dealing', 'licences', 'privacy-ai', 'open-data', 'law', 'rca', 'rca-tools']) {
+      expect(document.getElementById(id)?.textContent?.length).toBeGreaterThan(100)
+    }
+    expect(document.querySelectorAll('#sources .grid h3')).toHaveLength(11)
+    expect(screen.getByText(locale === 'zh' ? '短音频待转录' : 'Short audio transcription pending')).toBeInTheDocument()
+    const questions = document.querySelectorAll<HTMLButtonElement>('#review button')
+    expect(questions).toHaveLength(12)
+    for (const question of questions) {
+      await user.click(question)
+      expect(question).toHaveAttribute('aria-expanded', 'true')
+      expect(document.getElementById(question.getAttribute('aria-controls')!)?.textContent?.length).toBeGreaterThan(30)
+    }
+    for (const anchor of document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      expect(document.getElementById(anchor.hash.slice(1))).not.toBeNull()
+    }
+  })
+
+  it('selects Week 09, switches language and returns from its reserved exam page', async () => {
+    const user = userEvent.setup()
+    const router = await renderRoute('/week/08?lang=en')
+    await user.click(await screen.findByRole('combobox', { name: 'Select week' }))
+    await user.click(screen.getByRole('option', { name: /Week 09/ }))
+    expect(await screen.findByText('This week: permission, trust and accountability')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: '中文' }))
+    expect(await screen.findByText('本周主线：有权使用、值得信赖、能够负责')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/09')
+    expect(router.state.location.search.lang).toBe('zh')
+    await user.click(screen.getByRole('button', { name: '考点整理' }))
+    expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/chapter/05')
+    await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
+    expect(await screen.findByRole('heading', { name: 'IP, Open Data & RCA' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/09')
+    expect(router.state.location.search.lang).toBe('zh')
   })
 
 })

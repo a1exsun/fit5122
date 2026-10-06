@@ -1,6 +1,6 @@
 import { WEEKS, type WeekId } from '@/content/weeks'
 
-export const CHAPTER_IDS = ['01', '02', '03', '04', 'complex-communication'] as const
+export const CHAPTER_IDS = ['01', '02', '03', '04', '05', 'complex-communication'] as const
 export type ChapterId = (typeof CHAPTER_IDS)[number]
 export type ChapterStatus = 'published' | 'placeholder'
 
@@ -18,6 +18,7 @@ export const CHAPTERS = [
   { id: '02', status: 'published', weeks: ['02', '03', '04'], accent: '#356c78', softAccent: '#dcecef', heroAccent: '#a9d5dd' },
   { id: '03', status: 'published', weeks: ['05', '06'], accent: '#b96b25', softAccent: '#f7e5d1', heroAccent: '#f3c78f' },
   { id: '04', status: 'published', weeks: ['07', '08'], accent: '#4269a2', softAccent: '#e0e9f6', heroAccent: '#f5c789' },
+  { id: '05', status: 'placeholder', weeks: ['09'], accent: '#746047', softAccent: '#eee7dd', heroAccent: '#d9cd8b' },
   { id: 'complex-communication', status: 'published', weeks: ['07', '08'], accent: '#946037', softAccent: '#f5e6d6', heroAccent: '#f5c789' },
 ] as const satisfies readonly ChapterMetadata[]
 

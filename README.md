@@ -4,7 +4,7 @@
   <p><strong>Monash · FIT5122 Professional Practice</strong></p>
   <p><strong>2026 Semester 2 · Work in progress (WIP)</strong></p>
   <p>Study materials are being updated throughout the semester.</p>
-  <p>Own-time notes for Weeks 01–08 and chapter revision guides through Weeks 07–08, available in English and Chinese.</p>
+  <p>Own-time notes for Weeks 01–09 and chapter revision guides through Weeks 07–08, available in English and Chinese.</p>
   <h3>🌐 <a href="https://fit5122.xsun.work">fit5122.xsun.work</a></h3>
   <p>
     <a href="https://fit5122.xsun.work/?lang=zh">Read in Chinese</a> ·
@@ -33,6 +33,10 @@ Choose a week at the top of the site, or switch to **Exam Focus** to revise by c
 | **Week 06** | Measuring & Managing Software Quality | [Chinese](https://fit5122.xsun.work/week/06?lang=zh) · [English](https://fit5122.xsun.work/week/06?lang=en) |
 | **Week 07** | Effective Communication, Audiences & Storytelling | [Chinese](https://fit5122.xsun.work/week/07?lang=zh) · [English](https://fit5122.xsun.work/week/07?lang=en) |
 | **Week 08** | Business Communication, Data Presentation & Etiquette | [Chinese](https://fit5122.xsun.work/week/08?lang=zh) · [English](https://fit5122.xsun.work/week/08?lang=en) |
+
+| **Week 09** | Intellectual Property, Open Data & Root Cause Analysis | [Chinese](https://fit5122.xsun.work/week/09?lang=zh) · [English](https://fit5122.xsun.work/week/09?lang=en) |
+
+Week09 covers ten verified Own-time materials with twelve original self-checks: IP and copyright, fair dealing and licences, privacy and AI, open-data quality, historical IT disputes, and RCA. The short introduction audio awaits transcription. Chapter05 Exam Focus is reserved; its Own-time button returns to Week09.
 
 Week08 covers 12 verified Own-time materials, including both optional readings, with 12 original self-checks. The untranscribed audio summary is explicitly excluded.
 
