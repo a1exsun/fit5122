@@ -23,13 +23,13 @@ function DeductionMap({ locale }: { locale: Locale }) {
     return <button key={id} type="button" className={`map-node ${id.startsWith('neg-') ? 'negative' : ''}`} aria-pressed={selected === id} aria-controls="debate-map-detail" onClick={() => setSelected(id)}><small>{n.code}</small><Bilingual text={n.label} /></button>
   }
   return <div className="map-shell">
-    {nodeButton('facts')}
+    <div className="grid two">{debate.nodes.filter(n => n.group === 'shared').map(n => nodeButton(n.id))}</div>
     <div className="grid two">
-      <div><h3>{locale === 'zh' ? '正方路径：替代' : 'Affirmative: substitution'}</h3><div className="map-flow">{debate.nodes.filter(n => n.id.startsWith('aff-')).map(n => nodeButton(n.id))}</div></div>
-      <div><h3>{locale === 'zh' ? '反方路径：支架与校准' : 'Negative: scaffolding & calibration'}</h3><div className="map-flow">{debate.nodes.filter(n => n.id.startsWith('neg-')).map(n => nodeButton(n.id))}</div></div>
+      <div><h3>{locale === 'zh' ? '正方：六条理由' : 'Affirmative: six routes'}</h3><div className="map-flow">{debate.nodes.filter(n => n.id.startsWith('aff-')).map(n => nodeButton(n.id))}</div></div>
+      <div><h3>{locale === 'zh' ? '反方：六条理由' : 'Negative: six routes'}</h3><div className="map-flow">{debate.nodes.filter(n => n.id.startsWith('neg-')).map(n => nodeButton(n.id))}</div></div>
     </div>
-    {nodeButton('verdict')}
-    <div id="debate-map-detail" className="map-detail" aria-live="polite"><Html html={node.html} /></div>
+    <div className="grid two">{debate.nodes.filter(n => n.group === 'decision').map(n => nodeButton(n.id))}</div>
+    <div id="debate-map-detail" className="map-detail" aria-live="polite"><Html html={node.html} />{node.reply && <Button variant="outline" onClick={() => setSelected(debate.nodes.find(n => n.code === node.reply)!.id)}>{locale === 'zh' ? `看 ${node.reply} 怎么回` : `See the ${node.reply} reply`}</Button>}</div>
   </div>
 }
 
@@ -44,8 +44,9 @@ function ArgumentCards({ locale }: { locale: Locale }) {
 }
 
 function RehearsalTimer({ locale }: { locale: Locale }) {
-  const [duration, setDuration] = useState(240)
-  const [remaining, setRemaining] = useState(240)
+  const [duration, setDuration] = useState(60)
+  const [phase, setPhase] = useState<number | null>(null)
+  const [remaining, setRemaining] = useState(60)
   const [running, setRunning] = useState(false)
   const deadline = useRef(0)
   useEffect(() => {
@@ -58,6 +59,11 @@ function RehearsalTimer({ locale }: { locale: Locale }) {
     return () => window.clearInterval(interval)
   }, [running])
   function reset(seconds = duration) { setRunning(false); setRemaining(seconds) }
+  function choosePhase(index: number) {
+    setPhase(index)
+    const seconds = debate.schedule[index].seconds
+    setDuration(seconds); reset(seconds)
+  }
   function toggle() {
     if (running) { setRemaining(Math.max(0, Math.ceil((deadline.current - Date.now()) / 1000))); setRunning(false); return }
     const seconds = remaining || duration
@@ -65,8 +71,17 @@ function RehearsalTimer({ locale }: { locale: Locale }) {
   }
   return <div className="timer-panel" data-print-hidden>
     <h3>{locale === 'zh' ? '排练计时器' : 'Rehearsal timer'}</h3>
+    <p>{locale === 'zh' ? '正式比赛 20 分钟。训练两轮，共 40 分钟、12 段；换边后重打。' : 'Assessment: 20 minutes. Practice: two rounds, 40 minutes, 12 segments; swap sides.'}</p>
+    <div className="flex flex-wrap gap-3"><Button variant="secondary" aria-pressed={phase === null} onClick={() => { setPhase(null); setDuration(60); reset(60) }}>{locale === 'zh' ? '自由练习' : 'Free practice'}</Button><Button variant="secondary" aria-pressed={phase !== null} onClick={() => choosePhase(0)}>{locale === 'zh' ? '进入两轮流程' : 'Set up two rounds'}</Button></div>
+    {phase !== null && <div className="space-y-3">
+      <label htmlFor="debate-phase">{locale === 'zh' ? '训练进度' : 'Practice segment'}</label>
+      <select id="debate-phase" value={phase} onChange={e => choosePhase(Number(e.target.value))}>{debate.schedule.map((step, index) => <option key={index} value={index}>{locale === 'zh' ? `第 ${step.round} 轮` : `Round ${step.round}`} · {step.label[locale]} · {step.seconds / 60}:00</option>)}</select>
+      <p>{phase + 1} / 12 · {locale === 'zh' ? '第 2 轮换边。到时暂停，手动进入下一段。' : 'Swap sides for round 2. At zero, advance manually.'}</p>
+      <Button variant="secondary" disabled={phase === debate.schedule.length - 1} onClick={() => choosePhase(phase + 1)}>{locale === 'zh' ? '下一段' : 'Next segment'}</Button>
+    </div>}
     <label htmlFor="debate-duration">{locale === 'zh' ? '发言时长' : 'Speech duration'}</label>
-    <select id="debate-duration" value={duration} onChange={e => { const value = Number(e.target.value); setDuration(value); reset(value) }}>
+    <select id="debate-duration" disabled={phase !== null} value={duration} onChange={e => { const value = Number(e.target.value); setDuration(value); reset(value) }}>
+      <option value={60}>{locale === 'zh' ? '1:00 · 个人发言' : '1:00 · Individual speech'}</option>
       <option value={240}>{locale === 'zh' ? '4:00 · 开场' : '4:00 · Opening'}</option><option value={180}>{locale === 'zh' ? '3:00 · 反驳 / 结辩' : '3:00 · Rebuttal / closing'}</option>
     </select>
     <output className={remaining <= 30 ? 'warn' : ''} aria-label={locale === 'zh' ? '剩余时间' : 'Time remaining'}>{Math.floor(remaining / 60)}:{String(remaining % 60).padStart(2, '0')}</output>
@@ -103,7 +118,7 @@ export default function SocialResponsibilityDebate({ locale }: { locale: Locale 
     const term = value.trim().toLocaleLowerCase()
     setMatches(term ? debate.sections.filter(s => root.current?.querySelector(`#${s.id}`)?.textContent?.toLocaleLowerCase().includes(term)) : [])
   }
-  return <ChapterLayout chapterId="social-responsibility-debate" locale={locale} eyebrow="Assessment · Week 12 Debate" title="Social Responsibility Debate" subtitle={locale === 'zh' ? '生成式 AI、批判性思维与认识责任' : 'GenAI, critical thinking & epistemic responsibility'} summary={locale === 'zh' ? '围绕研究生专业发展的确切命题：双方论证、证据强度、伦理依据、反驳与发言准备。' : 'Two-sided arguments, evidence appraisal, ethical grounds, rebuttals and speaking preparation for the graduate-development motion.'} updated="2026-10-11" tags={locale === 'zh' ? ['15 个章节', '18 条来源', '双边论证', '4 / 4 / 3 / 3 / 3 / 3 分钟'] : ['15 sections', '18 sources', 'Both sides', '4 / 4 / 3 / 3 / 3 / 3 minutes']} toc={debate.sections.map(s => ({ id: s.id, label: s.title[locale] }))}>
+  return <ChapterLayout chapterId="social-responsibility-debate" locale={locale} eyebrow="Assessment · Week 12 Debate" title="Social Responsibility Debate" subtitle={locale === 'zh' ? '生成式 AI、批判性思维与认识责任' : 'GenAI, critical thinking & epistemic responsibility'} summary={locale === 'zh' ? '先把题目讲清，再练两轮攻防。附指定规则、证据速查和一分钟发言技巧。' : 'Get the motion straight, then practise two exchanges. Includes assigned rules, evidence checks and one-minute delivery.'} updated="2026-10-11" tags={locale === 'zh' ? ['正式 20 分钟', '训练 40 分钟 / 两轮', '12 张论证卡', '16 个思维节点'] : ['20-minute assessment', '40-minute / two-round practice', '12 argument cards', '16 thinking nodes']} toc={debate.sections.map(s => ({ id: s.id, label: s.title[locale] }))}>
     <div ref={root} className="debate-guide space-y-20" data-locale={comparison ? 'both' : locale}>
       <div className="space-y-4" data-print-hidden>
         <div className="flex flex-wrap items-end gap-4"><label className="flex min-w-0 flex-1 flex-col gap-2 font-bold" htmlFor="debate-search">{locale === 'zh' ? '搜索本专题' : 'Search this guide'}<input id="debate-search" type="search" value={query} onChange={e => searchGuide(e.target.value)} /></label><Button variant={comparison ? 'default' : 'outline'} aria-pressed={comparison} onClick={() => setComparison(!comparison)}>{locale === 'zh' ? '中英对照' : 'Bilingual comparison'}</Button></div>

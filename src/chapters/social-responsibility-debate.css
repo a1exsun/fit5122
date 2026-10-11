@@ -1,5 +1,5 @@
 /* Editorial markup is scoped to this chapter; the hub owns layout and navigation. */
-.debate-guide { --debate-green: var(--week-accent); --debate-blue: #4269a2; }
+.debate-guide { --debate-blue: #4269a2; }
 .debate-guide .debate-copy { min-width: 0; }
 .debate-guide .debate-copy p { margin: 0 0 1.2rem; }
 .debate-guide .debate-copy h3, .debate-guide .map-shell h3 { margin: 1.5rem 0 1rem; font-size: 1.2rem; font-weight: 800; line-height: 1.5; }
@@ -7,7 +7,6 @@
 .debate-guide .bi { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.25rem; }
 .debate-guide .bi > span { min-width: 0; }
 .debate-guide .bi > .en { color: var(--muted-foreground); }
-.debate-guide [data-locale] { min-width: 0; }
 .debate-guide[data-locale=zh] .en, .debate-guide[data-locale=en] .zh { display: none !important; }
 .debate-guide:not([data-locale=both]) .bi { display: block; }
 .debate-guide[data-locale=en] .bi > .en { color: inherit; border: 0; padding: 0; margin: 0; font-size: inherit; }
@@ -21,7 +20,7 @@
 .debate-guide .card .bi, .debate-guide table .bi, .debate-guide .check .bi { display: block; }
 .debate-guide .card .bi > .en, .debate-guide table .bi > .en, .debate-guide .check .bi > .en { display: block; margin-top: .65rem; }
 .debate-guide .card h3:first-child { margin-top: 0; }
-.debate-guide .notice, .debate-guide .logic { padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid var(--week-accent); background: var(--week-accent-soft); border-radius: 0 1rem 1rem 0; }
+.debate-guide .notice { padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid var(--week-accent); background: var(--week-accent-soft); border-radius: 0 1rem 1rem 0; }
 .debate-guide .notice h3 { margin-top: 0; }
 .debate-guide .motion-quote { font-size: 1.2rem; font-weight: 700; line-height: 1.65; padding-left: 1rem; margin: 1.4rem 0; border-left: 3px solid var(--week-accent); }
 .debate-guide .eyebrow { display: block; font-size: .7rem; font-weight: 800; color: var(--week-accent); letter-spacing: .09em; margin-bottom: .8rem; }
@@ -41,10 +40,9 @@
 .debate-guide .slot .en { display: block; }
 .debate-guide .slot strong { font-size: 1.4rem; }
 .debate-guide .map-shell { padding: 1.5rem; background: var(--week-accent-soft); border-radius: 1.2rem; }
-.debate-guide .map-flow { display: flex; flex-direction: column; gap: 1.3rem; }
-.debate-guide .map-node { position: relative; display: block; width: 100%; padding: 1rem; border: 1px solid var(--week-accent); border-radius: .8rem; background: var(--card); text-align: left; cursor: pointer; }
-.debate-guide .map-flow .map-node:not(:last-child)::after { content: '↓'; position: absolute; left: 50%; bottom: -1.3rem; color: var(--week-accent); }
-.debate-guide .map-node small { display: block; margin-bottom: .5rem; font-weight: 800; }
+.debate-guide .map-flow { display: flex; flex-direction: column; gap: .6rem; }
+.debate-guide .map-node { position: relative; display: block; width: 100%; padding: .7rem 1rem; border: 1px solid var(--week-accent); border-radius: .8rem; background: var(--card); text-align: left; cursor: pointer; }
+.debate-guide .map-node small { display: inline-block; margin-right: .5rem; margin-bottom: .25rem; font-weight: 800; }
 .debate-guide .map-node .bi { display: block; font-size: .9rem; font-weight: 700; }
 .debate-guide .map-node .en { display: block; margin-top: .4rem; }
 .debate-guide .map-node.negative { border-color: var(--debate-blue); }
@@ -102,4 +100,11 @@
   .debate-guide summary { display: none; }
   .debate-guide .source-links { display: none; }
   .debate-guide .card { padding: 12px; }
+}
+
+.debate-guide select:disabled { opacity: .8; }
+.debate-guide table:has(th:nth-child(2):last-child) { min-width: 0; }
+.debate-guide table:has(th:nth-child(2):last-child) th:first-child { width: 28%; }
+@media(min-width:1024px) {
+  div:has(> main > .debate-guide) > nav { max-height: calc(100dvh - 7rem); overflow-y: auto; }
 }
