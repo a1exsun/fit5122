@@ -1,0 +1,74 @@
+[
+  {
+    "source_id": "M00",
+    "file": "raw/assigned-motion.txt",
+    "bytes": 311,
+    "sha256": "bf7fe02224a4290c7dd730df17eabcb943161487699f1d441e49cd8bbbe2294a",
+    "source": "raw/assigned-motion.txt",
+    "provenance": "User-supplied exact motion",
+    "read_scope": "User-provided verbatim topic"
+  },
+  {
+    "source_id": "E01",
+    "file": "raw/lee-2025-critical-thinking.pdf",
+    "bytes": 1018898,
+    "sha256": "4f241a87e3b5383ff1d08311bb55d932237937e038d8c9c2e9e5bd792355709a",
+    "source": "https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "Abstract; §3 Method; §6.2–6.3, PDF p. 15"
+  },
+  {
+    "source_id": "E02",
+    "file": "raw/bastani-2025-learning.pdf",
+    "bytes": 1150746,
+    "sha256": "3c480fab94d0b6e466741a181724eba2bb868015f1a16ab998894a3a61067b4a",
+    "source": "https://hamsabastani.github.io/education_llm.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "Author manuscript pp. 1–2, 6–7, 11; unassisted exam results"
+  },
+  {
+    "source_id": "E03",
+    "file": "raw/kestin-2025-ai-tutor.pdf",
+    "bytes": 1376057,
+    "sha256": "afa6965dfd885fccdeb7ba48bec6a9e8293886db12a02860bbc388fa93e7ff72",
+    "source": "https://www.nature.com/articles/s41598-025-97652-6.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "PDF pp. 2–3 Results; p. 6 Context/limitations; p. 7 Methods"
+  },
+  {
+    "source_id": "E05",
+    "file": "raw/gao-zhang-2026-doctoral.pdf",
+    "bytes": 987151,
+    "sha256": "496a46099fbacac37f2749016809d7b6c5a8d732863b15a1b52a5bc41175190a",
+    "source": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1920947/pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "§2.2; §3; §4.5–4.7"
+  },
+  {
+    "source_id": "E06",
+    "file": "raw/walters-2023-citations.pdf",
+    "bytes": 942393,
+    "sha256": "2a911abde0ab94ad322871af9c259cefe25254324815507157071da1e5e66b83",
+    "source": "https://www.nature.com/articles/s41598-023-41032-5.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "Abstract; Methods: Paper topics and prompts; Results"
+  },
+  {
+    "source_id": "N01",
+    "file": "raw/naeem-hauser-2024-epistemic.pdf",
+    "bytes": 836947,
+    "sha256": "c9d908573d3a1880159baf83ed50b96b0c26acb01bb7bf0bae6796d28a664b38",
+    "source": "https://link.springer.com/content/pdf/10.1007/s13347-024-00774-4.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "§§4–5: Epistemic Integration; Defeaters, Design, and Policy"
+  },
+  {
+    "source_id": "N02",
+    "file": "raw/australian-research-code-2018.pdf",
+    "bytes": 241423,
+    "sha256": "7e588dff3203fde011815a010ba278d1b28ff513654e516d020710cb998e14a2",
+    "source": "https://www.nhmrc.gov.au/sites/default/files/documents/attachments/the-australian-code-for-the-responsible-conduct-of-research-2018.pdf",
+    "provenance": "Unmodified PDF from author, publisher or official issuing body; retrieved 2026-10-11",
+    "read_scope": "Principles P1–P3, P7; researcher responsibilities R22, R23, R27"
+  }
+]

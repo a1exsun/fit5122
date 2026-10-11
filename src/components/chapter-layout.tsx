@@ -34,7 +34,9 @@ export function ChapterLayout({ chapterId, locale, eyebrow, title, subtitle, sum
       tags={tags}
       toc={toc}
       footerPrimary={`FIT5122 · ${t(`chapters.${chapterId}.label`)} · Exam Focus`}
-      footerSecondary={chapterId === 'complex-communication'
+      footerSecondary={chapterId === 'social-responsibility-debate'
+        ? (locale === 'zh' ? '辩题专项 · 双边论证 · 可追溯证据' : 'Motion-specific arguments · Both sides · Traceable evidence')
+        : chapterId === 'complex-communication'
         ? (locale === 'zh' ? '规格原文 · 课程知识 · 真实案例模拟' : 'Assessment brief · Course concepts · Real incident simulations')
         : (locale === 'zh' ? '基于 key-points 与模拟题 · 双语复习页' : 'Based on key points and practice questions · Bilingual review')}
       contentsLabel={t('contents')}

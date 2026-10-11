@@ -36,6 +36,7 @@ const resources = {
         '10': { label: 'Week 10', title: '专业责任、伦理与数据治理' },
       },
       chapters: {
+        'social-responsibility-debate': { label: '社会责任辩论', title: '生成式 AI、批判性思维与认识责任', weeks: 'Week 12 workshop' },
         'complex-communication': { label: 'Complex Communication', title: '考核规格与真实案例演练', weeks: 'Week 09 Applied Session' },
         '01': { label: 'Chapter 01', title: '专业沟通与负责任使用 AI', weeks: 'Week 01' },
         '02': { label: 'Chapter 02', title: '团队、领导力与跨文化协作', weeks: 'Week 02–04' },
@@ -78,6 +79,7 @@ const resources = {
         '10': { label: 'Week 10', title: 'Professional Responsibility, Ethics & Data Governance' },
       },
       chapters: {
+        'social-responsibility-debate': { label: 'Social Responsibility Debate', title: 'GenAI, critical thinking & epistemic responsibility', weeks: 'Week 12 workshop' },
         'complex-communication': { label: 'Complex Communication', title: 'Assessment brief & real incident practice', weeks: 'Week 09 Applied Session' },
         '01': { label: 'Chapter 01', title: 'Professional Communication & Responsible AI', weeks: 'Week 01' },
         '02': { label: 'Chapter 02', title: 'Teams, Leadership & Cross-cultural Collaboration', weeks: 'Weeks 02–04' },
