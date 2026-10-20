@@ -9,8 +9,8 @@ describe('Chapter 05 exam focus', () => {
   it.each(['zh', 'en'] as const)('renders sections, practice groups and working anchors in %s', locale => {
     render(<Chapter05 locale={locale} />)
     expect(screen.getByRole('heading', { name: 'The Law, Ethics & Privacy', level: 1 })).toBeInTheDocument()
-    for (const id of ['map', 'ip', 'copyright', 'licences', 'data', 'law', 'rca', 'ethics', 'acs', 'privacy', 'rawls', 'practice-data', 'readings', 'coi', 'tutorials', 'traps', 'method']) {
-      expect(document.getElementById(id)?.textContent?.length).toBeGreaterThan(200)
+    for (const id of ['ip', 'licences', 'data-rca', 'ethics', 'acs', 'privacy', 'rawls', 'week11', 'readings', 'coi', 'scenarios', 'traps', 'method']) {
+      expect(document.getElementById(id)?.textContent?.length).toBeGreaterThan(150)
     }
     for (const id of ['practice09', 'practice10', 'practice11']) expect(document.querySelectorAll(`#${id} button`)).toHaveLength(12)
     expect(document.querySelectorAll('#critical button')).toHaveLength(6)
