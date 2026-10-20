@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'Professional Responsibility' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/10')
+    expect(await screen.findByRole('heading', { name: 'Privacy and Profiling' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/11')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {
@@ -373,8 +373,8 @@ describe('study hub routes', () => {
     expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/05')
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
-    expect(await screen.findByRole('heading', { name: 'Professional Responsibility' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/10')
+    expect(await screen.findByRole('heading', { name: 'Privacy and Profiling' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/11')
     expect(router.state.location.search.lang).toBe('zh')
   })
 

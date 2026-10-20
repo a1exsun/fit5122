@@ -40,7 +40,7 @@ describe('Week 10 Own-time Summary', () => {
     }
   })
 
-  it('selects Week 10, changes language and returns from its reserved chapter', async () => {
+  it('selects Week 10, changes language and opens its chapter latest summary', async () => {
     const user = userEvent.setup()
     const router = await renderRoute('/week/08?lang=en')
     await user.click(await screen.findByRole('combobox', { name: 'Select week' }))
@@ -54,8 +54,8 @@ describe('Week 10 Own-time Summary', () => {
     expect(await screen.findByRole('heading', { name: '考点页已预留' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/05')
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
-    expect(await screen.findByRole('heading', { name: 'Professional Responsibility', level: 1 })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/10')
+    expect(await screen.findByRole('heading', { name: 'Privacy and Profiling', level: 1 })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/11')
     expect(router.state.location.search.lang).toBe('zh')
   })
 })
