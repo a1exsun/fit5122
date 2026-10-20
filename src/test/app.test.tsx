@@ -370,7 +370,7 @@ describe('study hub routes', () => {
     expect(router.state.location.pathname).toBe('/week/09')
     expect(router.state.location.search.lang).toBe('zh')
     await user.click(screen.getByRole('button', { name: '考点整理' }))
-    expect(await screen.findByText('考点页已预留')).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Week09 · 知识产权：区分保护对象' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/05')
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
     expect(await screen.findByRole('heading', { name: 'Privacy and Profiling' })).toBeInTheDocument()

@@ -51,7 +51,7 @@ describe('Week 10 Own-time Summary', () => {
     expect(router.state.location.pathname).toBe('/week/10')
     expect(router.state.location.search.lang).toBe('zh')
     await user.click(screen.getByRole('button', { name: '考点整理' }))
-    expect(await screen.findByRole('heading', { name: '考点页已预留' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'Week09 · 知识产权：区分保护对象' })).toBeInTheDocument()
     expect(router.state.location.pathname).toBe('/chapter/05')
     await user.click(screen.getByRole('button', { name: 'Own-time 摘要' }))
     expect(await screen.findByRole('heading', { name: 'Privacy and Profiling', level: 1 })).toBeInTheDocument()

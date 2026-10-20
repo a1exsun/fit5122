@@ -31,7 +31,7 @@ describe('week registry', () => {
       { id: '02', weeks: ['02', '03', '04'], status: 'published' },
       { id: '03', weeks: ['05', '06'], status: 'published' },
       { id: '04', weeks: ['07', '08'], status: 'published' },
-      { id: '05', weeks: ['09', '10', '11'], status: 'placeholder' },
+      { id: '05', weeks: ['09', '10', '11'], status: 'published' },
       { id: 'complex-communication', weeks: ['07', '08'], status: 'published' },
       { id: 'social-responsibility-debate', weeks: ['09', '10'], status: 'published' },
     ])
