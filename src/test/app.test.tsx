@@ -21,8 +21,8 @@ async function renderRoute(path: string) {
 describe('study hub routes', () => {
   it('redirects the root route to the latest published week', async () => {
     const router = await renderRoute('/?lang=zh')
-    expect(await screen.findByRole('heading', { name: 'Privacy and Profiling' })).toBeInTheDocument()
-    expect(router.state.location.pathname).toBe('/week/11')
+    expect(await screen.findByRole('heading', { name: 'Lifelong Learning and Cover Letters' })).toBeInTheDocument()
+    expect(router.state.location.pathname).toBe('/week/12')
   })
 
   it('renders the complete Week 01 communication and AI guide', async () => {

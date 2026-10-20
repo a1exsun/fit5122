@@ -4,13 +4,13 @@ import { LATEST_WEEK_ID, WEEKS, getWeek, isWeekId } from '@/content/weeks'
 import { validateLanguageSearch } from '@/lib/search'
 
 describe('week registry', () => {
-  it('selects Week 11 as the latest published guide', () => {
-    expect(LATEST_WEEK_ID).toBe('11')
+  it('selects Week 12 as the latest published guide', () => {
+    expect(LATEST_WEEK_ID).toBe('12')
     expect(getWeek(LATEST_WEEK_ID)?.status).toBe('published')
   })
 
-  it('publishes all eleven week guides', () => {
-    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'])
+  it('publishes all twelve week guides', () => {
+    expect(WEEKS.filter((week) => week.status === 'published').map((week) => week.id)).toEqual(['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'])
     expect(WEEKS.filter((week) => week.status === 'placeholder')).toEqual([])
   })
 
@@ -21,6 +21,7 @@ describe('week registry', () => {
     expect(isWeekId('09')).toBe(true)
     expect(isWeekId('10')).toBe(true)
     expect(isWeekId('11')).toBe(true)
+    expect(isWeekId('12')).toBe(true)
     expect(validateLanguageSearch({ lang: 'en' })).toEqual({ lang: 'en' })
     expect(validateLanguageSearch({ lang: 'fr' })).toEqual({})
   })
@@ -32,6 +33,7 @@ describe('week registry', () => {
       { id: '03', weeks: ['05', '06'], status: 'published' },
       { id: '04', weeks: ['07', '08'], status: 'published' },
       { id: '05', weeks: ['09', '10', '11'], status: 'published' },
+      { id: '06', weeks: ['12'], status: 'placeholder' },
       { id: 'complex-communication', weeks: ['07', '08'], status: 'published' },
       { id: 'social-responsibility-debate', weeks: ['09', '10'], status: 'published' },
     ])
@@ -44,6 +46,8 @@ describe('week registry', () => {
     expect(getSummaryWeekForChapter('05')).toBe('11')
     expect(getChapterForWeek('10').id).toBe('05')
     expect(getChapterForWeek('11').id).toBe('05')
+    expect(getChapterForWeek('12').id).toBe('06')
+    expect(isChapterId('06')).toBe(true)
     expect(getChapterForWeek('07').id).toBe('04')
     expect(getSummaryWeekForChapter('04')).toBe('08')
     expect(isChapterId('social-responsibility-debate')).toBe(true)
